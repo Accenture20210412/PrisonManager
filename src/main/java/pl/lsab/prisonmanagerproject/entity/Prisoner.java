@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "osadzeni")
+@Table
 @Getter
 @Setter
 @NoArgsConstructor
