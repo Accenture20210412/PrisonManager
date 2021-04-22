@@ -1,11 +1,13 @@
 package pl.lsab.prisonmanagerproject.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.repository.PrisonerRepository;
 
 import java.util.List;
 
+@Service
 public class PrisonerServiceImp implements PrisonerService{
 
     private final PrisonerRepository prisonerRepository;
