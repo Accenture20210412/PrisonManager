@@ -9,10 +9,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
 
 @Entity
-@Table
 @Getter
 @Setter
 @NoArgsConstructor
@@ -31,7 +29,7 @@ public class Prisoner {
     @NotNull
     @NotEmpty
     @Size(min = 2, message = "Nazwisko powinno zawierac conajmniej 2 znaki")
-    @Column(name = "nawisko")
+    @Column(name = "nazwisko")
     private String surname;
 
 
@@ -43,13 +41,11 @@ public class Prisoner {
     @Column(name = "wyrok")
     private String judgment;
 
-    @NotNull
-    @NotEmpty
-    @Column(name = "poczatek odsiadki")
-    private LocalDate gridBegin;
-
-    @Column(name = "koniec odsiadki")
-    private LocalDate gridEnd;
+//    @Column(name = "poczatek odsiadki")
+//    private Integer gridBegin;
+//
+//    @Column(name = "koniec odsiadki")
+//    private Integer gridEnd;
 
 
 
