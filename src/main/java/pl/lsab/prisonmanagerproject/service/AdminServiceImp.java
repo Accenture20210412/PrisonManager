@@ -1,5 +1,6 @@
 package pl.lsab.prisonmanagerproject.service;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.lsab.prisonmanagerproject.entity.Admin;
@@ -14,20 +15,19 @@ public class AdminServiceImp implements AdminService{
 
     private AdminRepository adminRepository;
 
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     @Override
     public void save(Admin admin) {
-
-         adminRepository.save(admin);
+        admin.setPassword(bCryptPasswordEncoder.encode(admin.getPassword()));
+        adminRepository.save(admin);
     }
 
-    @Override
-    public void delete(Admin admin) {
 
-    }
 
     @Override
     public Optional<Admin> findById(Long id) {
-        return Optional.empty();
+        return adminRepository.findById(id);
     }
 }
