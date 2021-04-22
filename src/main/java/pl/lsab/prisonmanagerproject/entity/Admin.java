@@ -30,6 +30,14 @@ public class Admin {
     @Column(name = "nazwisko")
     private String lastName;
 
+
+    @Size(min = 3, message = "login powinien zawierac minimum 3 znaki")
+    @NotNull
+    @NotEmpty
+    @Column(name = "login")
+    private String username;
+
+
     @Size(min = 5, message = "Minimum 5 znaków")
     @NotNull
     @NotEmpty
@@ -38,5 +46,9 @@ public class Admin {
 
     @Transient
     private String passwordRepeat;
+
+
+    private Boolean enable;
+
 
 }
