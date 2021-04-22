@@ -9,7 +9,7 @@
           crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Charmonman:400,700|Open+Sans:400,600,700&amp;subset=latin-ext"
           rel="stylesheet">
-    <link rel="stylesheet" href="<c:url value='/resources/html/css/style.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/html/css/centralLoginDash.css'/>">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <jsp:include page="header.jsp"/>
@@ -22,7 +22,7 @@
                 <form class="padding-small text-center" method="post" >
                     <h1 class="text-color-darker">Logowanie</h1>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="email" name="username" placeholder="podaj adres email">
+                        <input type="text" class="form-control" id="login" name="login" placeholder="podaj login">
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" id="password" name="password" placeholder="podaj hasło">
