@@ -1,9 +1,11 @@
 package pl.lsab.prisonmanagerproject.service;
 
+import org.springframework.stereotype.Service;
 import pl.lsab.prisonmanagerproject.entity.Guard;
 
 import java.util.List;
 
+@Service
 public class GuardServiceImp implements GuardService{
     @Override
     public void save(Guard guard) {
