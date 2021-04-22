@@ -1,4 +1,4 @@
 package pl.lsab.prisonmanagerproject.repository;
 
-public class AdminRepository {
+public interface AdminRepository {
 }
