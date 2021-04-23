@@ -40,9 +40,9 @@ public class PrisonerServiceImp implements PrisonerService{
     }
 
     @Override
-    public void removePrisoner(Integer id) {
-        Prisoner prisoner = new Prisoner();
-        //TODO
+    public void removePrisoner(Long id) {
+        prisonerRepository.deleteById(id);
+
     }
 
 
