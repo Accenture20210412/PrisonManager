@@ -16,16 +16,14 @@ import java.util.List;
 public class PrisonerController {
     private PrisonerService prisonerService;
 
-    @Autowired
     public PrisonerController(PrisonerService prisonerService) {
         this.prisonerService = prisonerService;
     }
 
     @PostMapping("/dodaj")
-    @ResponseStatus(HttpStatus.CREATED)
     public String addPrisoner(@ModelAttribute Prisoner prisoner){
         prisonerService.addPrisoner(prisoner);
-        return "redirect:/";
+        return "redirect:/osadzeni";
     }
 
     @GetMapping("/dodaj")
@@ -34,20 +32,16 @@ public class PrisonerController {
         return "addPrisoner";
     }
 
-
-
-
     @GetMapping
-    public List<Prisoner> findAll(){
-        return prisonerService.findAll();
+    public String findAll(Model model){
+        List<Prisoner> prisoners = prisonerService.findAll();
+        model.addAttribute("prisoners", prisoners);
+        return "prisoners";
     }
 
-    @DeleteMapping(params = {"/{id}"})
-    @ResponseStatus(HttpStatus.OK)
-    public void removePrisoner(@PathParam("id") Long id){
+    @GetMapping("/delete/{id}")
+    public String deletePrisoner(@PathVariable Long id){
         prisonerService.removePrisoner(id);
+        return "redirect:/osadzeni";
     }
-
-
-
 }

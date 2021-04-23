@@ -19,7 +19,7 @@
         <div class="border">
             <div class="container w-25">
                 <form:form method="post" modelAttribute="prisoner" class="padding-small text-center">
-                    <h1 class="text-color-darker">Rejestracja</h1>
+                    <h1 class="text-color-darker">Dodaj osadzonego</h1>
                     <div class="form-group">
                         <form:input path="name" type="text" class="form-control" name="firstName" placeholder="Imie"/>
                         <form:errors path="name"/>
@@ -38,7 +38,7 @@
                                     placeholder="Wyrok"/>
                         <form:errors path="judgment"/>
                     </div>
-                    <button class="btn btn-color rounded-0" type="submit">Dodaj wieznia</button>
+                    <button class="btn btn-color rounded-0" type="submit">Dodaj osadzonego</button>
                 </form:form>
             </div>
         </div>
