@@ -29,8 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     @Override
     protected void configure(AuthenticationManagerBuilder managerBuilder)throws Exception{
         managerBuilder.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder())
-                .usersByUsernameQuery("SELECT login, haslo, enable FROM users WHERE login = ?")
-                .authoritiesByUsernameQuery("SELECT login, 'default' FROM users WHERE email = ?");
+                .usersByUsernameQuery("SELECT username, haslo, enable FROM admin WHERE username = ?")
+                .authoritiesByUsernameQuery("SELECT username, 'default' FROM admin WHERE username = ?");
     }
 
     @Override
