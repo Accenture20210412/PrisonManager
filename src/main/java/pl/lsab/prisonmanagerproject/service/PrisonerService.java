@@ -9,5 +9,5 @@ public interface PrisonerService {
     List<Prisoner> findAll();
     Prisoner findPrisonerByName(String name);
     Prisoner findPrisonerBySurname(String surname);
-    void removePrisoner(Integer id);
+    void removePrisoner(Long id);
 }

@@ -15,7 +15,7 @@
 
   <div class="topNav" id="myTopnav">
     <a href="<c:url value='/'/>" class="active">Strona Główna</a>
-    <a href="<c:url value='/'/>">Wyszukaj posiłek</a>
+    <a href="<c:url value='osadzeni/dodaj'/>">Dodaj osadzonego</a>
     <a href="<c:url value='/'/>">Dzisiejsze posiłki szczegółowo</a>
     <a href="<c:url value='/'/>">Dodaj swój posiłek</a>
     <a href="<c:url value='/'/>">Edycja użytkownika</a>

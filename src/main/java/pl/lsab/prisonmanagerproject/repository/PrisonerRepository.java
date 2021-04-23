@@ -12,4 +12,5 @@ public interface PrisonerRepository extends JpaRepository<Prisoner,Long> {
     Prisoner findByName(String name);
     Prisoner findBySurname(String surname);
     List<Prisoner> findAll();
+    void deleteById(Long id);
 }
