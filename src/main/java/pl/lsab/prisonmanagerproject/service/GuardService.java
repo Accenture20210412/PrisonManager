@@ -4,6 +4,7 @@ import pl.lsab.prisonmanagerproject.entity.Admin;
 import pl.lsab.prisonmanagerproject.entity.Guard;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface GuardService {
 
@@ -11,9 +12,12 @@ public interface GuardService {
 
     void delete(Guard guard);
 
-    Guard findGuardById(Long id);
+   Optional <Guard> findGuardById(Long id);
 
     List<Guard> allGuards();
+
+    List<Guard> findAllByAgeMoreThan50();
+
 
 
 
