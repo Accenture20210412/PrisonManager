@@ -10,37 +10,36 @@
           rel="stylesheet">
     <link rel="stylesheet" href="<c:url value='/resources/html/css/style.css'/>">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="<c:url value='/resources/html/css/addForm.css'/>">
 
-    <jsp:include page="header.jsp"/>
 </head>
 
+
 <section class="dashboard-section">
-    <div class="container pt-4 pb-4">
-        <div class="border">
-            <div class="container w-25">
                 <form:form method="post" modelAttribute="prisoner" class="padding-small text-center">
-                    <h1 class="text-color-darker">Dodaj osadzonego</h1>
-                    <div class="form-group">
+                    <div class="container">
+                        <h1>Dodaj osadzonego</h1>
+                        <p>Wpisz dane osadzonego</p>
+                        <hr>
                         <form:input path="name" type="text" class="form-control" name="firstName" placeholder="Imie"/>
-                        <form:errors path="name"/>
-                    </div>
-                    <div class="form-group">
+                        <form:errors path="name" cssClass="error"/>
+
                         <form:input path="surname" type="text" class="form-control" name="lastName" placeholder="Nazwisko"/>
-                        <form:errors path="surname"/>
-                    </div>
-                    <div class="form-group">
+                        <form:errors path="surname" cssClass="error"/>
+
                         <form:input path="nickname" type="text" class="form-control" name="Ksywa"
                                     placeholder="Ksywa"/>
-                        <form:errors path="nickname" />
-                    </div>
-                    <div class="form-group">
+                        <form:errors path="nickname" cssClass="error" />
+
                         <form:input path="judgment" type="text" class="form-control" name="Wyrok"
-                                    placeholder="Wyrok"/>
-                        <form:errors path="judgment"/>
-                    </div>
-                    <button class="btn btn-color rounded-0" type="submit">Dodaj osadzonego</button>
-                </form:form>
-            </div>
+                                    placeholder="Wyrok"/> </div>
         </div>
     </div>
+                        <form:errors path="judgment" cssClass="error"/>
+                        <hr>
+                        <hr>
+                    <button type="submit" class="registerbtn">Dodaj osadzonego</button>
+                    </div>
+                </form:form>
+
 </section>
