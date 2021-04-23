@@ -38,6 +38,11 @@
                                     placeholder="Wyrok"/>
                         <form:errors path="judgment"/>
                     </div>
+                    <div class="form-group">
+                        <form:input path="gridBegin" type="text" class="form-control" name="Poczatek"
+                                    placeholder="Poczatek wyroku"/>
+                        <form:errors path="gridBegin"/>
+<%--                    </div>--%>
                     <button class="btn btn-color rounded-0" type="submit">Dodaj osadzonego</button>
                 </form:form>
             </div>

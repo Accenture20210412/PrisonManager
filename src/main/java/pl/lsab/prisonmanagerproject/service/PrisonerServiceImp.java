@@ -29,11 +29,6 @@ public class PrisonerServiceImp implements PrisonerService{
     }
 
     @Override
-    public Prisoner findPrisonerBySurname(String surname) {
-        return prisonerRepository.findBySurname(surname);
-    }
-
-    @Override
     public void removePrisoner(Long id) {
         prisonerRepository.deleteById(id);
     }

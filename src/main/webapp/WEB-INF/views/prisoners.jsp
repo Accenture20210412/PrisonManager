@@ -28,7 +28,7 @@
                         <th scope="col">Nazwisko</th>
                         <th scope="col">Ksywa</th>
                         <th scope="col">Wyrok</th>
-                        <th scope="col"></th>
+                        <th scope="col">Poczatek wyroku</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -38,6 +38,7 @@
                             <td>${prisoner.surname}</td>
                             <td>${prisoner.nickname}</td>
                             <td>${prisoner.judgment}</td>
+                            <td>${prisoner.gridBegin}</td>
                             <td><a href="<c:url value="/osadzeni/delete/${prisoner.id}"/>" class="btn btn-info" role="button">Usuń</a></td>
                         </tr>
                     </c:forEach>

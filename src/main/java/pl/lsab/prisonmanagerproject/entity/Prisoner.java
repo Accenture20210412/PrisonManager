@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -20,14 +19,13 @@ public class Prisoner {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
-    @NotEmpty
+    @NotEmpty(message = "imie")
     @Size(min = 3, message = "Imie powinno zawierac conajmniej 3 znaki")
     @Column(name = "imie")
     private String name;
 
-    @NotNull
-    @NotEmpty
+
+    @NotEmpty(message = "nazwisko")
     @Size(min = 2, message = "Nazwisko powinno zawierac conajmniej 2 znaki")
     @Column(name = "nazwisko")
     private String surname;
@@ -36,17 +34,11 @@ public class Prisoner {
     @Column(name = "ksywa")
     private String nickname;
 
-    @NotNull
-    @NotEmpty
+
+    @NotEmpty(message = "Wprowadz dane")
     @Column(name = "wyrok")
     private String judgment;
 
-//    @Column(name = "poczatek odsiadki")
-//    private Integer gridBegin;
-//
-//    @Column(name = "koniec odsiadki")
-//    private Integer gridEnd;
-
-
-
+    @Column
+    private String gridBegin;
 }
