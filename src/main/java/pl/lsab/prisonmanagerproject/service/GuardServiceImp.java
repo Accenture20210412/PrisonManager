@@ -5,7 +5,6 @@ import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.repository.GuardRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class GuardServiceImp implements GuardService{
@@ -23,14 +22,10 @@ public class GuardServiceImp implements GuardService{
     }
 
     @Override
-    public void delete(Guard guard) {
-        guardRepository.delete(guard);
+    public void delete(Long id) {
+        guardRepository.deleteById(id);
     }
 
-    @Override
-    public Optional<Guard> findGuardById(Long id) {
-        return guardRepository.findById(id);
-    }
 
     @Override
     public List<Guard> allGuards() {

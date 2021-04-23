@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <form:input path="nickname" type="text" class="form-control" name="Ksywa"
                                     placeholder="Ksywa"/>
-                        <form:errors path="nickname"/>
+                        <form:errors path="nickname" />
                     </div>
                     <div class="form-group">
                         <form:input path="judgment" type="text" class="form-control" name="Wyrok"
