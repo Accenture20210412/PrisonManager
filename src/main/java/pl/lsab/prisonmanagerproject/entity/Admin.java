@@ -34,7 +34,7 @@ public class Admin {
     @Size(min = 3, message = "login powinien zawierac minimum 3 znaki")
     @NotNull
     @NotEmpty
-    @Column(name = "login")
+    @Column(unique = true)
     private String username;
 
 

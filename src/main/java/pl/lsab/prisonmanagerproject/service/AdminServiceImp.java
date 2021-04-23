@@ -18,12 +18,21 @@ public class AdminServiceImp implements AdminService{
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
+    public AdminServiceImp(AdminRepository adminRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.adminRepository = adminRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+
     @Override
     public void save(Admin admin) {
         admin.setPassword(bCryptPasswordEncoder.encode(admin.getPassword()));
         adminRepository.save(admin);
     }
 
+    @Override
+    public Admin findByUsername(String login) {
+        return adminRepository.findAdminByUsername(login);
+    }
 
 
     @Override
