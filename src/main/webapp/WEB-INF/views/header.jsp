@@ -11,8 +11,8 @@
 
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a href="<c:url value='/login'/>">Logowanie</a>
-        <a href="<c:url value='/register'/>">Rejestracja</a>
+        <a href="<c:url value='/logowanie'/>">Logowanie</a>
+        <a href="<c:url value='/rejestracja'/>">Rejestracja</a>
     </div>
 
     <div id="main">
