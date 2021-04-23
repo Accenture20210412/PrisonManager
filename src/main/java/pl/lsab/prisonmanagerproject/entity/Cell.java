@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,10 +19,10 @@ public class Cell {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "numer celi")
+    @Column(name = "numer")
     private int cellNumber;
 
-    @Column(name = "stan celi")
+    @Column(name = "stan")
     private boolean isItEmpty;
 
     @OneToMany

@@ -1,6 +1,7 @@
 package pl.lsab.prisonmanagerproject.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Service;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.repository.PrisonerRepository;
@@ -38,10 +39,11 @@ public class PrisonerServiceImp implements PrisonerService{
         return prisonerRepository.findBySurname(surname);
     }
 
-
     @Override
-    public void removePrisonerFromJail(Prisoner prisoner) {
-        prisonerRepository.delete(prisoner);
+    public void removePrisoner(Integer id) {
+        Prisoner prisoner = new Prisoner();
+        //TODO
     }
+
 
 }
