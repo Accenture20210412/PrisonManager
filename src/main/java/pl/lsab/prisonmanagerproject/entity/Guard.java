@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.List;
 
 @Entity
 @Table(name = "straznik")
@@ -37,5 +38,6 @@ public class Guard {
     @Column(name = "wiek")
     private int age;
 
-
+    @OneToMany
+    private List<Cell> cells;
 }
