@@ -13,7 +13,6 @@
 </head>
 <header>
     <a href="<c:url value='/'/>" class="btn btn-info" role="button">Strona Główna</a>
-    <a href="<c:url value="/search"/>" class="btn btn-info" role="button">Wyszukaj</a>
     <a href="<c:url value="/osadzeni/dodaj"/>" class="btn btn-info" role="button">Dodaj osadzonego</a>
     <a href="<c:url value='/straznicy/dodaj'/>" class="btn btn-info" role="button">Dodaj straznika</a>
     <a href="<c:url value='/straznicy'/>" class="btn btn-info" role="button">Straznicy</a>

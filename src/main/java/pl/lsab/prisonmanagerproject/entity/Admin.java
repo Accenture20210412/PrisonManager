@@ -17,11 +17,11 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Size(min = 3, message = "imię powinno zawierać minimum 3 znaki")
+    @Size(min = 3, message = "imie powinno zawierac minimum 3 znaki")
     @Column(name = "imie")
     private String firstName;
 
-    @Size(min = 3, message = "nazwisko powinno zawierać minimum 3 znaki")
+    @Size(min = 3, message = "nazwisko powinno zawierac minimum 3 znaki")
     @Column(name = "nazwisko")
     private String lastName;
 
@@ -31,7 +31,7 @@ public class Admin {
     private String username;
 
 
-    @Size(min = 5, message = "Minimum 5 znaków")
+    @Size(min = 5, message = "Minimum 5 znakow")
     @Column(name = "haslo")
     private String password;
 

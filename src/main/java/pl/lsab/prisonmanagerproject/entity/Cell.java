@@ -3,6 +3,8 @@ package pl.lsab.prisonmanagerproject.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -17,12 +19,8 @@ public class Cell {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "number")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "numer")
     private int cellNumber;
-
-    @Column(name = "stan")
-    private boolean isItEmpty;
 
     @OneToMany
     @JoinTable(name = "stan_cel")
