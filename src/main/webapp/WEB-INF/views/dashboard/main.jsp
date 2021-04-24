@@ -13,7 +13,6 @@
 <body>
 <div class="hero-image">
     <div class="hero-text">
-        <p>Dodaj nowy posiłek do swojego dnia</p>
         <a href="<c:url value='/'/>" class="btn btn-info" role="button">Dodaj</a>
     </div>
 </div>

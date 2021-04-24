@@ -37,9 +37,12 @@
                         <form:input path="judgment" type="text" class="form-control" name="Wyrok"
                                     placeholder="Wyrok"/>
                         <form:errors path="judgment" cssClass="error"/>
-                        <form:input path="gridBegin" type="text" class="form-control" name="Odsiadka"
-                                placeholder="Czas odsiadki"/> </div>
+                        <form:input path="gridBegin" type="date" class="form-control" name="Odsiadka"
+                                placeholder="Czas odsiadki"/>
                         <form:errors path="gridBegin" cssClass="error"/>
+                    <form:input path="gridEnd" type="date" class="form-control" name="Odsiadka"
+                                placeholder="Czas odsiadki"/> </div>
+                    <form:errors path="gridEnd" cssClass="error"/>
         </div>
     </div>
                         <hr>

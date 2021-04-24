@@ -4,10 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "osadzony")
@@ -38,7 +40,14 @@ public class Prisoner {
     @Column(name = "wyrok")
     private String judgment;
 
-    @NotEmpty(message = "Wprowadz czas odsiadki")
     @Column
-    private String gridBegin;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Convert(converter = LocalDateAttributeConverter.class)
+    private LocalDate gridBegin;
+
+    @Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Convert(converter = LocalDateAttributeConverter.class)
+    private LocalDate gridEnd;
+
 }

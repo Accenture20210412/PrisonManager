@@ -15,6 +15,10 @@
     <a href="<c:url value='/'/>" class="btn btn-info" role="button">Strona Główna</a>
     <a href="<c:url value="/search"/>" class="btn btn-info" role="button">Wyszukaj</a>
     <a href="<c:url value="/osadzeni/dodaj"/>" class="btn btn-info" role="button">Dodaj osadzonego</a>
+    <a href="<c:url value='/straznicy/dodaj'/>" class="btn btn-info" role="button">Dodaj straznika</a>
+    <a href="<c:url value='/straznicy'/>" class="btn btn-info" role="button">Straznicy</a>
+    <a href="<c:url value='/cele'/>" class="btn btn-info" role="button">Stan cel</a>
+    <a href="<c:url value='/'/>" class="btn btn-info" role="button">Wyloguj</a>
 </header>
 <div class="container-fluid padding">
     <div class="row padding">
@@ -29,6 +33,7 @@
                         <th scope="col">Ksywa</th>
                         <th scope="col">Wyrok</th>
                         <th scope="col">Poczatek wyroku</th>
+                        <th scope="col">Koniec wyroku</th>
                         <th scope="col"></th>
                     </tr>
                     </thead>
@@ -40,6 +45,7 @@
                             <td>${prisoner.nickname}</td>
                             <td>${prisoner.judgment}</td>
                             <td>${prisoner.gridBegin}</td>
+                            <td>${prisoner.gridEnd}</td>
                             <td><a href="<c:url value="/osadzeni/delete/${prisoner.id}"/>" class="btn btn-info" role="button">Usuń</a></td>
                         </tr>
                     </c:forEach>
