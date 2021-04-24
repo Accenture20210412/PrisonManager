@@ -25,4 +25,7 @@ public class Cell {
     @OneToMany
     @JoinTable(name = "stan_cel")
     private Set<Prisoner> prisoners;
+
+    @OneToOne
+    private Guard guard;
 }
