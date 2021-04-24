@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="<c:url value='/resources/html/css/addForm.css'/>">
 
 </head>
+<header>
+    <a href="<c:url value='/'/>" class="btn btn-info" role="button">Strona Główna</a>
+    <a href="<c:url value='/straznicy'/>" class="btn btn-info" role="button">Powrót</a>
+</header>
 
 <section class="dashboard-section">
 

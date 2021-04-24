@@ -32,28 +32,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .usersByUsernameQuery("SELECT username, haslo, enable FROM admin WHERE username = ?")
                 .authoritiesByUsernameQuery("SELECT username, 'default' FROM admin WHERE username = ?");
     }
-
     @Override
     protected void configure(HttpSecurity httpSecurity)throws Exception{
-
         httpSecurity.authorizeRequests()
                 .antMatchers("/app/**").authenticated().anyRequest().permitAll()
-
                 .and()
                 .formLogin()
                 .loginPage("/logowanie").permitAll()
                 .defaultSuccessUrl("/")
                 .failureUrl("/logowanie?error")
-
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/wylogowanie"))
                 .logoutSuccessUrl("/")
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
-
                 .and()
                 .httpBasic();
     }
-
 }

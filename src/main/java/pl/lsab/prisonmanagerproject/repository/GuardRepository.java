@@ -24,4 +24,6 @@ public interface GuardRepository extends JpaRepository<Guard,Long> {
     @Query("SELECT g from Guard g where g.age>?50")
     List<Guard> findAllByAgeMoreThan50();
 
+
+
 }

@@ -10,6 +10,7 @@ import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.service.AdminServiceImp;
 import pl.lsab.prisonmanagerproject.service.GuardServiceImp;
+import pl.lsab.prisonmanagerproject.service.PrisonerServiceImp;
 
 import javax.validation.Valid;
 import javax.websocket.server.PathParam;
@@ -24,16 +25,20 @@ public class GuardController {
 
     GuardServiceImp guardServiceImp;
     AdminServiceImp adminServiceImp;
+    PrisonerServiceImp prisonerServiceImp;
 
-    public GuardController(GuardServiceImp guardServiceImp, AdminServiceImp adminServiceImp) {
+    public GuardController(GuardServiceImp guardServiceImp, AdminServiceImp adminServiceImp, PrisonerServiceImp prisonerServiceImp) {
         this.guardServiceImp = guardServiceImp;
         this.adminServiceImp = adminServiceImp;
+        this.prisonerServiceImp = prisonerServiceImp;
     }
 
     @GetMapping()
-    public String allGuards(Model model){
+    public String allGuards(Model model, Model model1){
         List<Guard> guards = guardServiceImp.allGuards();
+        List<Prisoner>prisoners = prisonerServiceImp.findAll();
         model.addAttribute("guards",guards);
+        model1.addAttribute("prison",prisoners);
         return "dashboard/guards";
     }
 
@@ -57,6 +62,12 @@ public class GuardController {
        guardServiceImp.delete(id);
         return "redirect:/straznicy";
     }
+
+
+    @GetMapping("/{id}")
+    public String addCellToGuard(@PathVariable Long id){
+        return "sa";
+        }
 
 
 

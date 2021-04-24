@@ -8,8 +8,10 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.List;
 
 @Entity
+@Table(name="straznik")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -35,6 +37,10 @@ public class Guard {
     @Max(value = 60, message = "maksimum 60 lat")
     @Column(name = "wiek")
     private int age;
+
+    @OneToMany
+    private List<Cell> cells;
+
 
 
 }
