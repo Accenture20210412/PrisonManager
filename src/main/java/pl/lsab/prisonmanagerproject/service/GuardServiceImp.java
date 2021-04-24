@@ -1,6 +1,7 @@
 package pl.lsab.prisonmanagerproject.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.repository.GuardRepository;
 
@@ -33,8 +34,14 @@ public class GuardServiceImp implements GuardService{
     }
 
     @Override
-    public List<Guard> findAllByAgeMoreThan50() {
-        return guardRepository.findAllByAgeMoreThan50();
+    public Guard findOne(Long id) {
+        return guardRepository.findOne(id);
+    }
+
+    @Override
+    @Transactional
+    public void setUpdateGuard(Guard guard, Long id) {
+        guardRepository.setUpdateGuard(guard,id);
     }
 
 

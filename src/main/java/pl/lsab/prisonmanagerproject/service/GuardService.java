@@ -1,5 +1,6 @@
 package pl.lsab.prisonmanagerproject.service;
 
+import org.springframework.data.repository.query.Param;
 import pl.lsab.prisonmanagerproject.entity.Guard;
 
 import java.util.List;
@@ -12,8 +13,9 @@ public interface GuardService {
 
     List<Guard> allGuards();
 
-    List<Guard> findAllByAgeMoreThan50();
+    Guard findOne(Long id);
 
+    void setUpdateGuard(Guard guard, Long id);
 
 
 

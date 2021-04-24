@@ -6,9 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.lsab.prisonmanagerproject.entity.Admin;
+import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.service.AdminServiceImp;
+import pl.lsab.prisonmanagerproject.service.CellServiceImp;
 import pl.lsab.prisonmanagerproject.service.GuardServiceImp;
 import pl.lsab.prisonmanagerproject.service.PrisonerServiceImp;
 
@@ -25,20 +27,24 @@ public class GuardController {
 
     GuardServiceImp guardServiceImp;
     AdminServiceImp adminServiceImp;
-    PrisonerServiceImp prisonerServiceImp;
+    CellServiceImp cellServiceImp;
 
-    public GuardController(GuardServiceImp guardServiceImp, AdminServiceImp adminServiceImp, PrisonerServiceImp prisonerServiceImp) {
+    public GuardController(GuardServiceImp guardServiceImp, AdminServiceImp adminServiceImp, CellServiceImp cellServiceImp) {
         this.guardServiceImp = guardServiceImp;
         this.adminServiceImp = adminServiceImp;
-        this.prisonerServiceImp = prisonerServiceImp;
+        this.cellServiceImp = cellServiceImp;
     }
 
     @GetMapping()
-    public String allGuards(Model model, Model model1){
-        List<Guard> guards = guardServiceImp.allGuards();
-        List<Prisoner>prisoners = prisonerServiceImp.findAll();
-        model.addAttribute("guards",guards);
-        model1.addAttribute("prison",prisoners);
+    public String allGuards(Model guards, Model cells, Model oneGuard){
+        Guard guard = new Guard();
+        Cell cell = new Cell();
+        List<Guard> allGuards = guardServiceImp.allGuards();
+        List<Cell>allCells = cellServiceImp.findAll();
+        guards.addAttribute("guards",allGuards);
+        cells.addAttribute("cells",allCells);
+        oneGuard.addAttribute("oneGuard",guard);
+        cells.addAttribute("oneCell",cell);
         return "dashboard/guards";
     }
 
@@ -64,9 +70,21 @@ public class GuardController {
     }
 
 
-    @GetMapping("/{id}")
-    public String addCellToGuard(@PathVariable Long id){
-        return "sa";
+    @PostMapping()
+    public String addCellToGuard(@ModelAttribute Guard guard){
+        Cell cell1 = guard.getCells().get(0);
+        cell1.setGuard(guard);
+
+
+        guardServiceImp.setUpdateGuard(guard, guard.getId());
+        cellServiceImp.update(guard, cell1.getId());
+
+
+//       Guard guard1 = guardServiceImp.findOne(guard);
+//       Cell cell1 = cellServiceImp.findOne(cellId);
+//       guard.getCells().add(cell);
+//       cellServiceImp.update(guard,cellId);
+       return "redirect:/straznicy";
         }
 
 

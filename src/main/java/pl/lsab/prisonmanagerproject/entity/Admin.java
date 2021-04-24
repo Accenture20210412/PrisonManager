@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 public class Admin {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Size(min = 3, message = "imię powinno zawierać minimum 3 znaki")

@@ -14,11 +14,10 @@ import java.util.Set;
 public class Cell {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "number")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int cellNumber;
 
     @Column(name = "stan")
@@ -27,4 +26,7 @@ public class Cell {
     @OneToMany
     @JoinTable(name = "stan_cel")
     private Set<Prisoner> prisoners;
+
+    @ManyToOne
+    private Guard guard;
 }
