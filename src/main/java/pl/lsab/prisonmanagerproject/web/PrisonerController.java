@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.service.PrisonerService;
 
@@ -17,14 +18,15 @@ public class PrisonerController {
     private PrisonerService prisonerService;
 
     public PrisonerController(PrisonerService prisonerService) {
+
         this.prisonerService = prisonerService;
     }
 
     @PostMapping("/dodaj")
     public String addPrisoner(@Valid @ModelAttribute Prisoner prisoner, BindingResult validation){
-//        if (validation.hasErrors()){
-//            return "addPrisoner";
-//        }
+        if (validation.hasErrors()){
+            return "addPrisoner";
+        }
         prisonerService.addPrisoner(prisoner);
         return "redirect:/osadzeni";
     }

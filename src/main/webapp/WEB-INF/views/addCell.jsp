@@ -16,27 +16,16 @@
 
 
 <section class="dashboard-section">
-                <form:form method="post" modelAttribute="prisoner" class="padding-small text-center">
+                <form:form method="post" modelAttribute="cell" class="padding-small text-center">
                     <div class="container">
-                        <h1>Dodaj osadzonego</h1>
-                        <p>Wpisz dane osadzonego</p>
+                        <h1>Stworz cele</h1>
                         <hr>
-                        <form:input path="name" type="text" class="form-control" name="firstName" placeholder="Imie"/>
-                        <form:errors path="name" cssClass="error"/>
+                        <form:input path="cellNumber" type="text" class="form-control" name="cellnumber" placeholder="cellnumber"/>
+                        <form:errors path="cellNumber" cssClass="error"/>
 
-                        <form:input path="surname" type="text" class="form-control" name="lastName" placeholder="Nazwisko"/>
-                        <form:errors path="surname" cssClass="error"/>
-
-                        <form:input path="nickname" type="text" class="form-control" name="Ksywa"
-                                    placeholder="Ksywa"/>
-                        <form:errors path="nickname" cssClass="error" />
-
-                        <form:input path="judgment" type="text" class="form-control" name="Wyrok"
-                                    placeholder="Wyrok"/>
-                        <form:errors path="judgment" cssClass="error"/>
-                        <form:input path="gridBegin" type="text" class="form-control" name="Odsiadka"
-                                placeholder="Czas odsiadki"/> </div>
-                        <form:errors path="gridBegin" cssClass="error"/>
+                        <form:checkbox path="itEmpty"></form:checkbox>
+                        <form:errors path="itEmpty" cssClass="error"/>
+                    </div>
         </div>
     </div>
                         <hr>

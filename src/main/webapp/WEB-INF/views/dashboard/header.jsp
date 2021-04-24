@@ -15,10 +15,10 @@
 
   <div class="topNav" id="myTopnav">
     <a href="<c:url value='/'/>" class="active">Strona Główna</a>
-    <a href="<c:url value='osadzeni/dodaj'/>">Dodaj osadzonego</a>
-    <a href="<c:url value='/'/>">Dzisiejsze posiłki szczegółowo</a>
-    <a href="<c:url value='/'/>">Dodaj swój posiłek</a>
-    <a href="<c:url value='/'/>">Edycja użytkownika</a>
+    <a href="<c:url value='/osadzeni/dodaj'/>">Dodaj osadzonego</a>
+    <a href="<c:url value='/straznicy/dodaj'/>">Dodaj straznika</a>
+    <a href="<c:url value='/straznicy'/>">Straznicy</a>
+    <a href="<c:url value='/cele'/>">Stan cel</a>
     <a href="<c:url value='/'/>">Wyloguj</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars"></i>

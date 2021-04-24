@@ -10,6 +10,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Entity
+@Table(name = "osadzony")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,13 +20,12 @@ public class Prisoner {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotEmpty(message = "imie")
+
     @Size(min = 3, message = "Imie powinno zawierac conajmniej 3 znaki")
     @Column(name = "imie")
     private String name;
 
 
-    @NotEmpty(message = "nazwisko")
     @Size(min = 2, message = "Nazwisko powinno zawierac conajmniej 2 znaki")
     @Column(name = "nazwisko")
     private String surname;
@@ -34,11 +34,11 @@ public class Prisoner {
     @Column(name = "ksywa")
     private String nickname;
 
-
-    @NotEmpty(message = "Wprowadz dane")
+    @NotEmpty(message = "Wprowadz wyrok")
     @Column(name = "wyrok")
     private String judgment;
 
+    @NotEmpty(message = "Wprowadz czas odsiadki")
     @Column
     private String gridBegin;
 }
