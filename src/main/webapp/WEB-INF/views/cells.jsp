@@ -13,7 +13,6 @@
 </head>
 <header>
     <a href="<c:url value='/'/>" class="btn btn-info" role="button">Strona Główna</a>
-    <a href="<c:url value="/search"/>" class="btn btn-info" role="button">Wyszukaj</a>
     <a href="<c:url value="/cele/nowacela"/>" class="btn btn-info" role="button">Dodaj informacje o celi</a>
 </header>
 <div class="container-fluid padding">

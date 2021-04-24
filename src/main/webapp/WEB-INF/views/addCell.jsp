@@ -18,19 +18,16 @@
 <section class="dashboard-section">
                 <form:form method="post" modelAttribute="cell" class="padding-small text-center">
                     <div class="container">
-                        <h1>Stworz cele</h1>
+                        <h1>Wprowadz mozliwa ilosc osadzonych</h1>
                         <hr>
                         <form:input path="cellNumber" type="text" class="form-control" name="cellnumber" placeholder="cellnumber"/>
                         <form:errors path="cellNumber" cssClass="error"/>
-
-                        <form:checkbox path="itEmpty"></form:checkbox>
-                        <form:errors path="itEmpty" cssClass="error"/>
                     </div>
         </div>
     </div>
                         <hr>
                         <hr>
-                    <button type="submit" class="registerbtn">Dodaj osadzonego</button>
+                    <button type="submit" class="registerbtn">Zatwierdz</button>
                     </div>
                 </form:form>
 

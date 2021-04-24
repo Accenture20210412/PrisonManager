@@ -26,7 +26,7 @@ public class CellController {
 
     @PostMapping("/nowacela")
     public String addCell(@Valid @ModelAttribute Cell cell, BindingResult validation){
-        if (validation.hasErrors()){
+        if (validation.hasErrors() || cell.getCellNumber() <= 0){
             return "addCell";
         }
         cellService.add(cell);

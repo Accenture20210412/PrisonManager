@@ -3,6 +3,7 @@ package pl.lsab.prisonmanagerproject.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.lsab.prisonmanagerproject.entity.Admin;
 import pl.lsab.prisonmanagerproject.service.AdminServiceImp;
@@ -29,6 +30,15 @@ public class HomeController {
         if (principal != null) {
             Admin admin = adminServiceImp.findByUsername(principal.getName());
             model.addAttribute("admin", admin);
+        }
+        return "index";
+    }
+
+    @PostMapping()
+    public String test(){
+        Admin admin = new Admin();
+        if (adminServiceImp.findByUsername(admin.getUsername()) == null){
+            return "redirect:rejestracja";
         }
         return "index";
     }

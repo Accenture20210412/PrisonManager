@@ -18,6 +18,8 @@
     <a href="<c:url value='/'/>" class="btn btn-info" role="button">Strona Główna</a>
     <a href="<c:url value="/search"/>" class="btn btn-info" role="button">Wyszukaj</a>
     <a href="<c:url value="/straznicy/dodaj"/>" class="btn btn-info" role="button">Nowy strażnik</a>
+    <a href="<c:url value='/cele'/>" class="btn btn-info" role="button">Stan cel</a>
+    <a href="<c:url value='/'/>"class="btn btn-info" role="button">Wyloguj</a>
 
 
 </header>
