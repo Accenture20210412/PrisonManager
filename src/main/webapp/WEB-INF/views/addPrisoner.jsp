@@ -35,10 +35,13 @@
                         <form:errors path="nickname" cssClass="error" />
 
                         <form:input path="judgment" type="text" class="form-control" name="Wyrok"
-                                    placeholder="Wyrok"/> </div>
+                                    placeholder="Wyrok"/>
+                        <form:errors path="judgment" cssClass="error"/>
+                        <form:input path="gridBegin" type="text" class="form-control" name="Odsiadka"
+                                placeholder="Czas odsiadki"/> </div>
+                        <form:errors path="gridBegin" cssClass="error"/>
         </div>
     </div>
-                        <form:errors path="judgment" cssClass="error"/>
                         <hr>
                         <hr>
                     <button type="submit" class="registerbtn">Dodaj osadzonego</button>

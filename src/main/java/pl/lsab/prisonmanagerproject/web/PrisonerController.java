@@ -1,14 +1,15 @@
 package pl.lsab.prisonmanagerproject.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.service.PrisonerService;
 
-import javax.websocket.server.PathParam;
+
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -17,11 +18,15 @@ public class PrisonerController {
     private PrisonerService prisonerService;
 
     public PrisonerController(PrisonerService prisonerService) {
+
         this.prisonerService = prisonerService;
     }
 
     @PostMapping("/dodaj")
-    public String addPrisoner(@ModelAttribute Prisoner prisoner){
+    public String addPrisoner(@Valid @ModelAttribute Prisoner prisoner, BindingResult validation){
+        if (validation.hasErrors()){
+            return "addPrisoner";
+        }
         prisonerService.addPrisoner(prisoner);
         return "redirect:/osadzeni";
     }

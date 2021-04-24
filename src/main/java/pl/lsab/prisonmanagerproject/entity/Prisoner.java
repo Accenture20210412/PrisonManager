@@ -7,10 +7,10 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
+@Table(name = "osadzony")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -34,15 +34,11 @@ public class Prisoner {
     @Column(name = "ksywa")
     private String nickname;
 
-
-    @NotEmpty
+    @NotEmpty(message = "Wprowadz wyrok")
     @Column(name = "wyrok")
     private String judgment;
 
+    @NotEmpty(message = "Wprowadz czas odsiadki")
     @Column
     private String gridBegin;
-
-
-
-
 }

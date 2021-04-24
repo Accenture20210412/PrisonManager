@@ -14,35 +14,32 @@
 <header>
     <a href="<c:url value='/'/>" class="btn btn-info" role="button">Strona Główna</a>
     <a href="<c:url value="/search"/>" class="btn btn-info" role="button">Wyszukaj</a>
-    <a href="<c:url value="/osadzeni/dodaj"/>" class="btn btn-info" role="button">Dodaj osadzonego</a>
+    <a href="<c:url value="/cele/nowacela"/>" class="btn btn-info" role="button">Dodaj informacje o celi</a>
 </header>
 <div class="container-fluid padding">
     <div class="row padding">
         <div class="col-12">
-            <h2 class="analytics-main" style="text-align: center">Lista osadzonych</h2>
+            <h2 class="analytics-main" style="text-align: center">Stan cel</h2>
                 <br>
                 <table class="table table-striped bg-light">
                     <thead class="thead-light">
                     <tr>
+                        <th scope="col">Numer celi</th>
                         <th scope="col">Imie</th>
                         <th scope="col">Nazwisko</th>
-                        <th scope="col">Ksywa</th>
-                        <th scope="col">Wyrok</th>
-                        <th scope="col">Poczatek wyroku</th>
                         <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${prisoners}" var="prisoner">
+                    <c:forEach items="${cells}" var="cell">
                         <tr>
-                            <td>${prisoner.name}</td>
-                            <td>${prisoner.surname}</td>
-                            <td>${prisoner.nickname}</td>
-                            <td>${prisoner.judgment}</td>
-                            <td>${prisoner.gridBegin}</td>
-                            <td><a href="<c:url value="/osadzeni/delete/${prisoner.id}"/>" class="btn btn-info" role="button">Usuń</a></td>
-                        </tr>
+                            <td>${cell.cellNumber}</td>
                     </c:forEach>
+                    <c:forEach items="${prisoners}" var="prisoner">
+                        <td>${prisoner.name}</td>
+                        <td>${prisoner.surname}</td>
+                            <td></td>
+                        </c:forEach>
                     </tbody>
                 </table>
         </div>

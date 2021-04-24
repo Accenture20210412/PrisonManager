@@ -11,7 +11,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 
 @Entity
-@Table(name="straznik")
+@Table(name = "straznik")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -40,7 +40,4 @@ public class Guard {
 
     @OneToMany
     private List<Cell> cells;
-
-
-
 }
