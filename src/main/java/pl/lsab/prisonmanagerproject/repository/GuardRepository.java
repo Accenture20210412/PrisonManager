@@ -13,27 +13,18 @@ import java.util.List;
 @Repository
 public interface GuardRepository extends JpaRepository<Guard,Long> {
 
-    List<Guard> findAllByAge(int age);
-    List<Guard> findAllByAgeGreaterThan(int age);
-    List<Guard> findAllByName(String name);
-    List<Guard> findAllBySurname(String surname);
-
     @Query("SELECT g from Guard g where g.id=:id")
     Guard findOne(@Param("id") Long id);
 
     void deleteById(Long id);
 
-    @Query("SELECT g from Guard g where g.age>?50")
-    List<Guard> findAllByAgeMoreThan50();
-
-
     @Modifying
     @Query("update Guard g set g.cell = ?1 where g.id = ?2")
     void setUpdateGuard(Cell cell, Long id);
 
-
-    @Query("SELECT g from Guard g where g.surname LIKE '%1%' ")
+    @Query("SELECT g from Guard g where g.surname LIKE %?1% or g.name LIKE %?1%")
     List<Guard> searchGuard(String word);
+
 
 
 

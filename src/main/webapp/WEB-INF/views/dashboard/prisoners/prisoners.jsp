@@ -8,7 +8,7 @@
           crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Charmonman:400,700|Open+Sans:400,600,700&amp;subset=latin-ext"
           rel="stylesheet">
-    <link rel="stylesheet" href="<c:url value='/resources/html/css/style.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/html/css/landingAdminPage.css'/>">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <header>
@@ -17,7 +17,10 @@
     <a href="<c:url value='/straznicy/dodaj'/>" class="btn btn-info" role="button">Dodaj straznika</a>
     <a href="<c:url value='/straznicy'/>" class="btn btn-info" role="button">Straznicy</a>
     <a href="<c:url value='/cele'/>" class="btn btn-info" role="button">Stan cel</a>
-    <a href="<c:url value='/'/>" class="btn btn-info" role="button">Wyloguj</a>
+    <a> <form class="topright" action="/osadzeni/search">
+        <input type="text" placeholder="Search.." name="keyword" id="search" >
+        <button type="submit" class="btn btn-info">szukaj</button>
+    </form></a>
 </header>
 <div class="container-fluid padding">
     <div class="row padding">
@@ -42,7 +45,7 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${prisoners}" var="prisoner">
-                            <form:form method="post" modelAttribute="onePrisoner" >
+                            <form:form method="post" modelAttribute="onePrisoner" action="/osadzeni" >
                         <tr>
                             <td><form:input size="4" readonly="true" path="id" value="${prisoner.id}"/></td>
                             <td><form:input size="10" type="text" readonly="true" path="name" value="${prisoner.name}"/></td>

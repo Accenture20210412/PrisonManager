@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.lsab.prisonmanagerproject.entity.Cell;
+import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.repository.PrisonerRepository;
 
@@ -38,14 +39,19 @@ public class PrisonerServiceImp implements PrisonerService{
 
     @Override
     public Prisoner findPrisonerById(Long id) {
-        prisonerRepository.findPrisonerById(id);
-        return null;
+       return prisonerRepository.findPrisonerById(id);
+
     }
 
     @Override
     @Transactional
     public void setUpdatePrisoner(Cell cell, Long id) {
         prisonerRepository.setUpdatePrisoner(cell, id);
+    }
+
+    @Override
+    public List<Prisoner> searchPrison(String word) {
+        return prisonerRepository.searchPrison(word);
     }
 
 

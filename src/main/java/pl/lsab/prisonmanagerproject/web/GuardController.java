@@ -1,5 +1,6 @@
 package pl.lsab.prisonmanagerproject.web;
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,7 +11,6 @@ import pl.lsab.prisonmanagerproject.service.AdminServiceImp;
 import pl.lsab.prisonmanagerproject.service.CellServiceImp;
 import pl.lsab.prisonmanagerproject.service.GuardServiceImp;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -30,16 +30,14 @@ public class GuardController {
     }
 
     @GetMapping()
-    public String allGuards(Model guards, Model cells, Model oneGuard, Model oneCell){
+    public String allGuards(Model guards, Model cells, Model oneGuard){
         Guard guard = new Guard();
-        Cell cell = new Cell();
-
         List<Guard> allGuards = guardServiceImp.allGuards();
         List<Cell>allCellsWhereNoGuard = cellServiceImp.findAllWhereNoGuard();
         guards.addAttribute("guards",allGuards);
         cells.addAttribute("cells",allCellsWhereNoGuard);
         oneGuard.addAttribute("oneGuard",guard);
-        oneCell.addAttribute("oneCell",cell);
+
         return "dashboard/guards/guards";
     }
 
@@ -85,19 +83,23 @@ public class GuardController {
             guardServiceImp.setUpdateGuard(cell1, guard.getId());
             cellServiceImp.updateCellGuard(guard, cell1.getId());
         }
-
-
        return "redirect:/straznicy";
         }
 
-
     @GetMapping("/search")
-    public String searchGuards(HttpServletRequest request, Model model){
-        List<Guard> guardList = guardServiceImp.searchGuard(request.getContextPath());
-        model.addAttribute("list",guardList);
+    public String searchGuards(@Param("keyword") String keyword, Model guards, Model cells, Model oneGuard){
+        Guard guard = new Guard();
+        String word = keyword;
+        List<Guard> guardSearchList = guardServiceImp.searchGuard(word);
+        List<Cell>allCellsWhereNoGuard = cellServiceImp.findAllWhereNoGuard();
+
+        guards.addAttribute("guards",guardSearchList);
+        cells.addAttribute("cells",allCellsWhereNoGuard);
+        oneGuard.addAttribute("oneGuard",guard);
 
         return "dashboard/guards/guards";
     }
 
 
 }
+

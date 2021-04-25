@@ -19,11 +19,11 @@
     <a href="<c:url value="/straznicy/dodaj"/>" class="btn btn-info" role="button">Nowy strażnik</a>
     <a href="<c:url value='/cele'/>" class="btn btn-info" role="button">Stan cel</a>
     <a href="<c:url value='/'/>" class="btn btn-info" role="button">Wyloguj</a>
+    <a> <form class="topright" action="/straznicy/search">
+        <input type="text" placeholder="Search.." name="keyword" id="search" >
+        <button type="submit" class="btn btn-info">szukaj</button>
+    </form></a>
 
-    <form class="example" action="/straznicy/search">
-        <input type="text" placeholder="Search.." name="search" id="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
 </header>
 <div class="container-fluid padding">
     <div class="row padding">
@@ -44,7 +44,7 @@
                 </thead>
                 <tbody>
                 <c:forEach items="${guards}" var="guard">
-                <form:form method="post" modelAttribute="oneGuard" >
+                <form:form method="post" modelAttribute="oneGuard" action="/straznicy">
                     <tr>
                         <td><form:input readonly="true" path="id" value="${guard.id}"/></td>
                         <td><form:input type="text" readonly="true" path="name" value="${guard.name}"/></td>

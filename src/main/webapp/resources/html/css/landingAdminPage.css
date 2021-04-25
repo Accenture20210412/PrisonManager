@@ -2,6 +2,13 @@ body, html {
     height: 100%;
 }
 
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+}
+
 
 .hero-image {
 
