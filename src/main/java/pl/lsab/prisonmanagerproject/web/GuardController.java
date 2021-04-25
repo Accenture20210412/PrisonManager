@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import pl.lsab.prisonmanagerproject.entity.Admin;
 import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Guard;
-import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.service.AdminServiceImp;
 import pl.lsab.prisonmanagerproject.service.CellServiceImp;
 import pl.lsab.prisonmanagerproject.service.GuardServiceImp;
@@ -36,15 +35,15 @@ public class GuardController {
     }
 
     @GetMapping()
-    public String allGuards(Model guards, Model cells, Model oneGuard){
+    public String allGuards(Model guards, Model cells, Model oneGuard, Model oneCell){
         Guard guard = new Guard();
         Cell cell = new Cell();
         List<Guard> allGuards = guardServiceImp.allGuards();
-        List<Cell>allCells = cellServiceImp.findAll();
+        List<Cell>allCellsWhereNoGuard = cellServiceImp.findAllWhereNoGuard();
         guards.addAttribute("guards",allGuards);
-        cells.addAttribute("cells",allCells);
+        cells.addAttribute("cells",allCellsWhereNoGuard);
         oneGuard.addAttribute("oneGuard",guard);
-        cells.addAttribute("oneCell",cell);
+        oneCell.addAttribute("oneCell",cell);
         return "dashboard/guards";
     }
 
@@ -65,25 +64,30 @@ public class GuardController {
 
     @GetMapping("/delete/{id}")
     public String deleteGuard(@PathVariable Long id){
-       guardServiceImp.delete(id);
+        cellServiceImp.update(null,guardServiceImp.findOne(id).getCell().getId());
+        guardServiceImp.delete(id);
         return "redirect:/straznicy";
     }
 
 
     @PostMapping()
     public String addCellToGuard(@ModelAttribute Guard guard){
-        Cell cell1 = guard.getCells().get(0);
-        cell1.setGuard(guard);
+        Guard guard1= new Guard();
+        Cell cell1 = new Cell();
+        if (guard.getCell()==null){
+            cell1 = cellServiceImp.findByGuard(guard);
+            guardServiceImp.setUpdateGuard(null, guard.getId());
+            cellServiceImp.update(null,cell1.getId());
+        }else {
+            cell1 = guard.getCell();
+            guard1 = guard;
+            guard1.setCell(cell1);
+
+            guardServiceImp.setUpdateGuard(cell1, guard.getId());
+            cellServiceImp.update(guard, cell1.getId());
+        }
 
 
-        guardServiceImp.setUpdateGuard(guard, guard.getId());
-        cellServiceImp.update(guard, cell1.getId());
-
-
-//       Guard guard1 = guardServiceImp.findOne(guard);
-//       Cell cell1 = cellServiceImp.findOne(cellId);
-//       guard.getCells().add(cell);
-//       cellServiceImp.update(guard,cellId);
        return "redirect:/straznicy";
         }
 

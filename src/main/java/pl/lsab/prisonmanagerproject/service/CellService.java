@@ -13,4 +13,8 @@ public interface CellService {
     Cell findOne(Long id);
 
     void update(Guard guard, Long id);
+
+    Cell findByGuard(Guard guard);
+
+    List<Cell>findAllWhereNoGuard();
 }

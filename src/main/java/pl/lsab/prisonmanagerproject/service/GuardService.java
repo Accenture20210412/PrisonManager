@@ -1,6 +1,7 @@
 package pl.lsab.prisonmanagerproject.service;
 
 import org.springframework.data.repository.query.Param;
+import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Guard;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public interface GuardService {
 
     Guard findOne(Long id);
 
-    void setUpdateGuard(Guard guard, Long id);
+    void setUpdateGuard(Cell cell, Long id);
 
 
 

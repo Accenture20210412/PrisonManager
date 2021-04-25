@@ -28,8 +28,8 @@ public interface GuardRepository extends JpaRepository<Guard,Long> {
 
 
     @Modifying
-    @Query("update Guard g set g = ?1 where g.id = ?2")
-    void setUpdateGuard(Guard guard, Long id);
+    @Query("update Guard g set g.cell = ?1 where g.id = ?2")
+    void setUpdateGuard(Cell cell, Long id);
 
 
 }

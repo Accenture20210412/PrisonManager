@@ -38,6 +38,6 @@ public class Guard {
     @Column(name = "wiek")
     private int age;
 
-    @OneToMany
-    private List<Cell> cells;
+    @OneToOne
+    private Cell cell;
 }

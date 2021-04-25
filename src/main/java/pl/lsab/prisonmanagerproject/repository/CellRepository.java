@@ -23,4 +23,10 @@ public interface CellRepository extends JpaRepository<Cell, Long > {
     @Query("update Cell c set c.guard = ?1 where c.id = ?2")
     void setUpdateCell(Guard guard, Long id);
 
+    @Query("SELECT c FROM Cell c WHERE c.guard=null")
+    List<Cell>findAllWhereNoGuard();
+
+
+
+    Cell findByGuard(Guard guard);
 }

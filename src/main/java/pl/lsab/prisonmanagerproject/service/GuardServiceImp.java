@@ -2,6 +2,7 @@ package pl.lsab.prisonmanagerproject.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.repository.GuardRepository;
 
@@ -40,8 +41,8 @@ public class GuardServiceImp implements GuardService{
 
     @Override
     @Transactional
-    public void setUpdateGuard(Guard guard, Long id) {
-        guardRepository.setUpdateGuard(guard,id);
+    public void setUpdateGuard(Cell cell, Long id) {
+        guardRepository.setUpdateGuard(cell,id);
     }
 
 

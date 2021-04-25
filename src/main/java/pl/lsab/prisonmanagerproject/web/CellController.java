@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.lsab.prisonmanagerproject.entity.Cell;
-import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.service.CellService;
 import pl.lsab.prisonmanagerproject.service.PrisonerService;
 
@@ -42,9 +41,9 @@ public class CellController {
     @GetMapping
     public String findAll(Model model){
         List<Cell> cells = cellService.findAll();
-        List<Prisoner> prisoners = prisonerService.findAll();
+//        List<Prisoner> prisoners = prisonerService.findAll();
         model.addAttribute("cells", cells);
-        model.addAttribute("prisoners",prisoners);
+//        model.addAttribute("prisoners",prisoners);
         return "cells";
     }
 }

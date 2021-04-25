@@ -31,11 +31,13 @@
             <table class="table table-striped bg-light">
                 <thead class="thead-light">
                 <tr>
-                    <th scope="col">Imię</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Imie</th>
                     <th scope="col">Nazwisko</th>
                     <th scope="col">Wiek</th>
+                    <th scope="col">Cele pod opieka</th>
                     <th scope="col">Dodaj celę</th>
-                    <th scope="col"></th>
+                    <th scope="col">Zwolnij straznika</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -46,20 +48,23 @@
                         <td><form:input type="text" readonly="true" path="name" value="${guard.name}"/></td>
                         <td><form:input type="text" readonly="true" path="surname" value="${guard.surname}"/></td>
                         <td><form:input type="text" readonly="true" path="age" value="${guard.age}"/></td>
+                        <c:if test="${guard.cell==null}">
+                                <td> <form:select path="cell">
+                                     <c:forEach items="${cells}" var="cela">
+                                         <form:option value="${cela.id}"/>
+                                     </c:forEach>
+                                 </form:select>
+                         </c:if>
+                        <c:if test="${guard.cell!=null}">
+                        <td><c:out value="${guard.cell.id}"/></td>
+                        </c:if>
                         <td>
-
-                            <form:select path="cells">
-                                <c:forEach items="${cells}" var="cell">
-                                    <form:option  value="${cell.id}"/>
-                                </c:forEach>
-                            </form:select>
                             <button type="submit" class="btn btn-secondary">Dodaj</button>
                         </td>
                         <td><a href="<c:url value="/straznicy/delete/${guard.id}"/>" class="btn btn-info" role="button">Usuń</a></td>
                     </tr>
-    </form:form>
+                </form:form>
                 </c:forEach>
-
                 </tbody>
             </table>
         </div>

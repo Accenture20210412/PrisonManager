@@ -9,7 +9,7 @@ import pl.lsab.prisonmanagerproject.repository.CellRepository;
 import java.util.List;
 
 @Service
-public class CellServiceImp implements CellService{
+public class CellServiceImp implements CellService {
 
     CellRepository cellRepository;
 
@@ -35,6 +35,16 @@ public class CellServiceImp implements CellService{
     @Override
     @Transactional
     public void update(Guard guard, Long id) {
-         cellRepository.setUpdateCell(guard,id);
+        cellRepository.setUpdateCell(guard, id);
+    }
+
+
+    public Cell findByGuard(Guard guard) {
+       return cellRepository.findByGuard(guard);
+    }
+
+    public List<Cell>findAllWhereNoGuard(){
+       return cellRepository.findAllWhereNoGuard();
     }
 }
+
