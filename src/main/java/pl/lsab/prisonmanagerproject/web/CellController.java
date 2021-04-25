@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.lsab.prisonmanagerproject.entity.Cell;
+import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.service.CellService;
 import pl.lsab.prisonmanagerproject.service.PrisonerService;
 
@@ -23,27 +24,23 @@ public class CellController {
         this.prisonerService = prisonerService;
     }
 
-    @PostMapping("/nowacela")
-    public String addCell(@Valid @ModelAttribute Cell cell, BindingResult validation){
-        if (validation.hasErrors() || cell.getCellNumber() <= 0){
-            return "addCell";
-        }
-        cellService.add(cell);
-        return "redirect:/cele";
-    }
 
-    @GetMapping("/nowacela")
-    public String addCell(Model model){
-        model.addAttribute("cell", new Cell());
-        return "addCell";
+    @GetMapping("/nowa")
+    public String addCell(){
+        Cell cell = new Cell();
+        long lastCellId = cellService.findLastCell().getId();
+        cell.setCellNumber((int)lastCellId);
+        cellService.add(cell);
+
+        return "redirect:/cele";
     }
 
     @GetMapping
     public String findAll(Model model){
         List<Cell> cells = cellService.findAll();
-//        List<Prisoner> prisoners = prisonerService.findAll();
+        List<Prisoner> prisoners = prisonerService.findAll();
         model.addAttribute("cells", cells);
-//        model.addAttribute("prisoners",prisoners);
+        model.addAttribute("prisoners",prisoners);
         return "cells";
     }
 }

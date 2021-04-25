@@ -24,29 +24,48 @@
         <div class="col-12">
             <h2 class="analytics-main" style="text-align: center">Lista osadzonych</h2>
                 <br>
-                <table class="table table-striped bg-light">
+                <table class="table table-striped bg-light" width="100%">
                     <thead class="thead-light">
                     <tr>
+                        <th scope="col">Id</th>
                         <th scope="col">Imie</th>
                         <th scope="col">Nazwisko</th>
                         <th scope="col">Ksywa</th>
                         <th scope="col">Wyrok</th>
                         <th scope="col">Poczatek wyroku</th>
                         <th scope="col">Koniec wyroku</th>
+                        <th scope="col">Dodaj/usun cele</th>
+                        <th scope="col">Wypusc</th>
                         <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
                     <c:forEach items="${prisoners}" var="prisoner">
+                            <form:form method="post" modelAttribute="onePrisoner" >
                         <tr>
-                            <td>${prisoner.name}</td>
-                            <td>${prisoner.surname}</td>
-                            <td>${prisoner.nickname}</td>
-                            <td>${prisoner.judgment}</td>
-                            <td>${prisoner.gridBegin}</td>
-                            <td>${prisoner.gridEnd}</td>
+                            <td><form:input size="4" readonly="true" path="id" value="${prisoner.id}"/></td>
+                            <td><form:input size="10" type="text" readonly="true" path="name" value="${prisoner.name}"/></td>
+                            <td><form:input size="10" type="text" readonly="true" path="surname" value="${prisoner.surname}"/></td>
+                            <td><form:input size="10" type="text" readonly="true" path="nickname" value="${prisoner.nickname}"/></td>
+                            <td><form:input size="10" type="text" readonly="true" path="judgment" value="${prisoner.judgment}"/></td>
+                            <td><form:input size="8" type="text" readonly="true" path="gridBegin" value="${prisoner.gridBegin}"/></td>
+                            <td><form:input size="8" type="text" readonly="true" path="gridEnd" value="${prisoner.gridEnd}"/></td>
+                            <c:if test="${prisoner.cell==null}">
+                            <td> <form:select path="cell">
+                                <c:forEach items="${cells}" var="cela">
+                                    <form:option value="${cela.id}"/>
+                                </c:forEach>
+                                </form:select>
+                                </c:if>
+                                <c:if test="${prisoner.cell!=null}">
+                            <td><c:out value="${prisoner.cell.id}"/></td>
+                            </c:if>
+                            <td>
+                                <button type="submit" class="btn btn-secondary">Dodaj</button>
+                            </td>
                             <td><a href="<c:url value="/osadzeni/delete/${prisoner.id}"/>" class="btn btn-info" role="button">Usuń</a></td>
                         </tr>
+                            </form:form>
                     </c:forEach>
                     </tbody>
                 </table>

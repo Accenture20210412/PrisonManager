@@ -23,15 +23,13 @@ public class HomeController {
 
     @GetMapping()
     public String LandingPageController(
-            Principal principal, Model model) {
-
-        model.addAttribute("logged_admin", principal);
-
+            Principal principal) {
         if (principal != null) {
-            Admin admin = adminServiceImp.findByUsername(principal.getName());
-            model.addAttribute("admin", admin);
+           return "dashboard/main";
+        }else{
+            return "redirect:/logowanie";
         }
-        return "index";
+
     }
 
     @PostMapping()
@@ -40,7 +38,7 @@ public class HomeController {
         if (adminServiceImp.findByUsername(admin.getUsername()) == null){
             return "redirect:rejestracja";
         }
-        return "index";
+        return "redirect:/logowanie";
     }
 
 

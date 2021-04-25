@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Guard;
+import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.repository.CellRepository;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public class CellServiceImp implements CellService {
 
     @Override
     @Transactional
-    public void update(Guard guard, Long id) {
+    public void updateCellGuard(Guard guard, Long id) {
         cellRepository.setUpdateCell(guard, id);
     }
 
@@ -46,5 +47,18 @@ public class CellServiceImp implements CellService {
     public List<Cell>findAllWhereNoGuard(){
        return cellRepository.findAllWhereNoGuard();
     }
+
+    @Override
+    public Cell findLastCell() {
+        return cellRepository.findLastCell();
+    }
+
+    @Override
+    @Transactional
+    public void updatePrisonerList(List<Prisoner> prisonersList, Long id) {
+
+    }
+
+
 }
 

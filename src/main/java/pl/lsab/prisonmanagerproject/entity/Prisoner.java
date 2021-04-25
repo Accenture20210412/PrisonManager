@@ -50,4 +50,7 @@ public class Prisoner {
     @Convert(converter = LocalDateAttributeConverter.class)
     private LocalDate gridEnd;
 
+    @ManyToOne
+    private Cell cell;
+
 }

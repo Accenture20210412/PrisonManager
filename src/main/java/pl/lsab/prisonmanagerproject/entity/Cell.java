@@ -22,8 +22,7 @@ public class Cell {
     @Column(name = "numer")
     private int cellNumber;
 
-    @OneToMany
-    @JoinTable(name = "stan_cel")
+    @OneToMany(mappedBy = "cell")
     private Set<Prisoner> prisoners;
 
     @OneToOne

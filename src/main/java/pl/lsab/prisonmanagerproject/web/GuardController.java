@@ -64,7 +64,10 @@ public class GuardController {
 
     @GetMapping("/delete/{id}")
     public String deleteGuard(@PathVariable Long id){
-        cellServiceImp.update(null,guardServiceImp.findOne(id).getCell().getId());
+       Guard guard = guardServiceImp.findOne(id);
+        if(guard.getCell()!=null) {
+            cellServiceImp.updateCellGuard(null, guard.getCell().getId());
+        }
         guardServiceImp.delete(id);
         return "redirect:/straznicy";
     }
@@ -77,14 +80,14 @@ public class GuardController {
         if (guard.getCell()==null){
             cell1 = cellServiceImp.findByGuard(guard);
             guardServiceImp.setUpdateGuard(null, guard.getId());
-            cellServiceImp.update(null,cell1.getId());
+            cellServiceImp.updateCellGuard(null,cell1.getId());
         }else {
             cell1 = guard.getCell();
             guard1 = guard;
             guard1.setCell(cell1);
 
             guardServiceImp.setUpdateGuard(cell1, guard.getId());
-            cellServiceImp.update(guard, cell1.getId());
+            cellServiceImp.updateCellGuard(guard, cell1.getId());
         }
 
 

@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Guard;
+import pl.lsab.prisonmanagerproject.entity.Prisoner;
 
 import java.util.List;
 
@@ -23,10 +24,17 @@ public interface CellRepository extends JpaRepository<Cell, Long > {
     @Query("update Cell c set c.guard = ?1 where c.id = ?2")
     void setUpdateCell(Guard guard, Long id);
 
-    @Query("SELECT c FROM Cell c WHERE c.guard=null")
+    @Query("SELECT c FROM Cell c WHERE c.guard IS NULL ")
     List<Cell>findAllWhereNoGuard();
 
 
+    @Modifying
+    @Query("update Cell c set c.prisoners= ?1 where c.id= ?2")
+    void updatePrisonerList(List<Prisoner>prisonersList, Long id);
+
+
+    @Query("SELECT c FROM Cell c WHERE c.id=(SELECT MAX (id) FROM c)")
+    Cell findLastCell();
 
     Cell findByGuard(Guard guard);
 }

@@ -36,7 +36,7 @@
                     <th scope="col">Nazwisko</th>
                     <th scope="col">Wiek</th>
                     <th scope="col">Cele pod opieka</th>
-                    <th scope="col">Dodaj celę</th>
+                    <th scope="col">Dodaj/usun cele</th>
                     <th scope="col">Zwolnij straznika</th>
                 </tr>
                 </thead>
