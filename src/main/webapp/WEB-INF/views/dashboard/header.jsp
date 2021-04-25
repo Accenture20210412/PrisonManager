@@ -14,10 +14,10 @@
   <div class="topNav" id="myTopnav">
     <a href="<c:url value='/main'/>" class="active">Strona Główna</a>
     <a href="<c:url value='/osadzeni/dodaj'/>">Dodaj osadzonego</a>
-    <a href="<c:url value='/osadzeni/dodaj'/>">Dodaj osadzonego</a>
+    <a href="<c:url value='/osadzeni'/>">Osadzeni</a>
+    <a href="<c:url value='/cele'/>">Stan cel</a>
     <a href="<c:url value='/straznicy/dodaj'/>">Dodaj straznika</a>
     <a href="<c:url value='/straznicy'/>">Straznicy</a>
-    <a href="<c:url value='/osadzeni'/>">Osadzeni</a>
     <a href="<c:url value='/cele'/>">Stan cel</a>
     <a href="<c:url value='/wylogowanie'/>">Wyloguj</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">

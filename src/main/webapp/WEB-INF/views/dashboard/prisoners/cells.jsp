@@ -24,21 +24,16 @@
                     <thead class="thead-light">
                     <tr>
                         <th scope="col">Numer celi</th>
-                        <th scope="col">Imie</th>
-                        <th scope="col">Nazwisko</th>
-                        <th scope="col"></th>
+                        <th scope="col">Ilość osób w celi</th>
                     </tr>
                     </thead>
                     <tbody>
                     <c:forEach items="${cells}" var="cell">
-                        <tr>
-                            <td>${cell.cellNumber}</td>
+                    <tr>
+                        <td>${cell.cellNumber}</td>
+                        <td>${cell.prisoners.size()}</td>
+                    </tr>
                     </c:forEach>
-                    <c:forEach items="${prisoners}" var="prisoner">
-                        <td>${prisoner.name}</td>
-                        <td>${prisoner.surname}</td>
-                            <td></td>
-                        </c:forEach>
                     </tbody>
                 </table>
         </div>

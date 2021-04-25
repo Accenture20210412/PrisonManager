@@ -2,14 +2,12 @@ package pl.lsab.prisonmanagerproject.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.service.CellService;
 import pl.lsab.prisonmanagerproject.service.PrisonerService;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -41,6 +39,6 @@ public class CellController {
         List<Prisoner> prisoners = prisonerService.findAll();
         model.addAttribute("cells", cells);
         model.addAttribute("prisoners",prisoners);
-        return "cells";
+        return "dashboard/prisoners/cells";
     }
 }

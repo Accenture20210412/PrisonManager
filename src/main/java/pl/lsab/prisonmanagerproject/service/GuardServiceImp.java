@@ -45,5 +45,12 @@ public class GuardServiceImp implements GuardService{
         guardRepository.setUpdateGuard(cell,id);
     }
 
+    @Override
+    public List<Guard> searchGuard(String word) {
+        return guardRepository.searchGuard(word);
+
+
+    }
+
 
 }

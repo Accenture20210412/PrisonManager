@@ -32,4 +32,9 @@ public interface GuardRepository extends JpaRepository<Guard,Long> {
     void setUpdateGuard(Cell cell, Long id);
 
 
+    @Query("SELECT g from Guard g where g.surname LIKE '%1%' ")
+    List<Guard> searchGuard(String word);
+
+
+
 }

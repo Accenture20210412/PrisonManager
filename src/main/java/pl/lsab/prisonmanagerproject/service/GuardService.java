@@ -18,6 +18,8 @@ public interface GuardService {
 
     void setUpdateGuard(Cell cell, Long id);
 
+    List<Guard> searchGuard(String word);
+
 
 
 }

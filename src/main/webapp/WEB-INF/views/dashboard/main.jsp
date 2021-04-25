@@ -11,5 +11,6 @@
 <link rel="stylesheet" href="<c:url value='/resources/html/css/landingAdminPage.css'/>">
 <jsp:include page="header.jsp"/>
 <body>
-
+<div class="hero-image">
+</div>
 </body>

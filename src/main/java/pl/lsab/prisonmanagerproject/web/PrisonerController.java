@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.lsab.prisonmanagerproject.entity.Cell;
-import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.service.CellService;
 import pl.lsab.prisonmanagerproject.service.PrisonerService;
@@ -35,7 +34,7 @@ public class PrisonerController {
         cells.addAttribute("cells",allCells);
         onePrisoner.addAttribute("onePrisoner",prisoner);
         oneCell.addAttribute("oneCell",cell);
-        return "prisoners";
+        return "dashboard/prisoners/prisoners";
     }
 
     @PostMapping()
@@ -68,13 +67,13 @@ public class PrisonerController {
             prisonerService.addPrisoner(prisoner);
             return "redirect:/osadzeni";
         }
-        return "addPrisoner";
+        return "dashboard/prisoners/addPrisoner";
     }
 
     @GetMapping("/dodaj")
     public String addPrisoner(Model model){
         model.addAttribute("prisoner",new Prisoner());
-        return "addPrisoner";
+        return "dashboard/prisoners/addPrisoner";
     }
 
 
@@ -89,5 +88,6 @@ public class PrisonerController {
         prisonerService.removePrisoner(id);
         return "redirect:/osadzeni";
     }
+
 
 }

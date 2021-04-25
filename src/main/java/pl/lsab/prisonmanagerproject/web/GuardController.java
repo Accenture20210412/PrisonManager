@@ -1,23 +1,18 @@
 package pl.lsab.prisonmanagerproject.web;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.lsab.prisonmanagerproject.entity.Admin;
 import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.service.AdminServiceImp;
 import pl.lsab.prisonmanagerproject.service.CellServiceImp;
 import pl.lsab.prisonmanagerproject.service.GuardServiceImp;
-import pl.lsab.prisonmanagerproject.service.PrisonerServiceImp;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
-import java.security.Principal;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/straznicy")
@@ -38,25 +33,26 @@ public class GuardController {
     public String allGuards(Model guards, Model cells, Model oneGuard, Model oneCell){
         Guard guard = new Guard();
         Cell cell = new Cell();
+
         List<Guard> allGuards = guardServiceImp.allGuards();
         List<Cell>allCellsWhereNoGuard = cellServiceImp.findAllWhereNoGuard();
         guards.addAttribute("guards",allGuards);
         cells.addAttribute("cells",allCellsWhereNoGuard);
         oneGuard.addAttribute("oneGuard",guard);
         oneCell.addAttribute("oneCell",cell);
-        return "dashboard/guards";
+        return "dashboard/guards/guards";
     }
 
     @GetMapping("/dodaj")
     public String addGuard(Model model){
         model.addAttribute("guard",new Guard());
-        return "addGuard";
+        return "dashboard/guards/addGuard";
     }
 
     @PostMapping("/dodaj")
     public String addGuard(@Valid @ModelAttribute Guard guard, BindingResult result){
         if (result.hasErrors()) {
-            return "addGuard";
+            return "dashboard/guards/addGuard";
         }
         guardServiceImp.save(guard);
         return "redirect:/straznicy";
@@ -95,6 +91,13 @@ public class GuardController {
         }
 
 
+    @GetMapping("/search")
+    public String searchGuards(HttpServletRequest request, Model model){
+        List<Guard> guardList = guardServiceImp.searchGuard(request.getContextPath());
+        model.addAttribute("list",guardList);
+
+        return "dashboard/guards/guards";
+    }
 
 
 }

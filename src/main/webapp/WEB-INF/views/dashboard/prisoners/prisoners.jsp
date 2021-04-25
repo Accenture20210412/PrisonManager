@@ -34,6 +34,7 @@
                         <th scope="col">Wyrok</th>
                         <th scope="col">Poczatek wyroku</th>
                         <th scope="col">Koniec wyroku</th>
+                        <th scope="col">Cela</th>
                         <th scope="col">Dodaj/usun cele</th>
                         <th scope="col">Wypusc</th>
                         <th scope="col"></th>

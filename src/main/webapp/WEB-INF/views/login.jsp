@@ -9,28 +9,24 @@
           crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Charmonman:400,700|Open+Sans:400,600,700&amp;subset=latin-ext"
           rel="stylesheet">
-    <link rel="stylesheet" href="<c:url value='/resources/html/css/centralLoginDash.css'/>">
-
+    <link rel="stylesheet" href="<c:url value='/resources/html/css/register.css'/>">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <jsp:include page="header.jsp"/>
 </head>
-
+<body>
 <section class="dashboard-section">
+    <jsp:include page="header.jsp"/>
     <div class="container pt-4 pb-4">
-        <div class="border" style="animation: alternate">
-            <div class="container w-25">
-                <form class="padding-small text-center" method="post" >
+        <div class="border">
+            <div class="container">
+                <form method="post" class="padding-small text-center">
                     <h1 class="text-color-darker">Logowanie</h1>
-                    <div class="form-group">
                         <input type="text" class="form-control" id="username" name="username" placeholder="podaj login">
-                    </div>
-                    <div class="form-group">
                         <input type="password" class="form-control" id="password" name="password" placeholder="podaj hasło">
-                    </div>
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                    <button class="btn btn-color rounded-0" type="submit">Zaloguj</button>
+                    <button class="registerbtn" type="submit">Zaloguj</button>
                 </form>
             </div>
         </div>
     </div>
 </section>
+</body>
