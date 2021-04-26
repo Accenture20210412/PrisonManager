@@ -39,4 +39,11 @@ public class Guard {
 
     @OneToOne
     private Cell cell;
+
+    public Guard(Long id, String name, String surname, int age) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+    }
 }

@@ -21,8 +21,6 @@ public class CellController {
         this.cellService = cellService;
         this.prisonerService = prisonerService;
     }
-
-
     @GetMapping("/nowa")
     public String addCell(){
         Cell cell = new Cell();

@@ -53,4 +53,14 @@ public class Prisoner {
     @ManyToOne
     private Cell cell;
 
+
+    public Prisoner(Long id, String name, String surname, String nickname, String judgment, LocalDate gridBegin, LocalDate gridEnd) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.nickname = nickname;
+        this.judgment = judgment;
+        this.gridBegin = gridBegin;
+        this.gridEnd = gridEnd;
+    }
 }

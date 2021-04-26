@@ -1,12 +1,11 @@
 package pl.lsab.prisonmanagerproject.web;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.lsab.prisonmanagerproject.entity.Admin;
-import pl.lsab.prisonmanagerproject.service.AdminServiceImp;
+import pl.lsab.prisonmanagerproject.service.AdminService;
 
 import java.security.Principal;
 
@@ -14,11 +13,10 @@ import java.security.Principal;
 @RequestMapping("/")
 public class HomeController {
 
-    AdminServiceImp adminServiceImp;
+    AdminService adminService;
 
-
-    public HomeController(AdminServiceImp adminServiceImp) {
-        this.adminServiceImp = adminServiceImp;
+    public HomeController(AdminService adminService) {
+        this.adminService = adminService;
     }
 
     @GetMapping()
@@ -29,13 +27,11 @@ public class HomeController {
         }else{
             return "redirect:/logowanie";
         }
-
     }
-
     @PostMapping()
     public String test(){
         Admin admin = new Admin();
-        if (adminServiceImp.findByUsername(admin.getUsername()) == null){
+        if (adminService.findByUsername(admin.getUsername()) == null){
             return "redirect:rejestracja";
         }
         return "redirect:/logowanie";

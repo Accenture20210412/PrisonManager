@@ -27,4 +27,6 @@ public class Cell {
 
     @OneToOne
     private Guard guard;
+
+
 }

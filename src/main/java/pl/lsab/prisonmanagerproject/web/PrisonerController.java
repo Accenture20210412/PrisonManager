@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.lsab.prisonmanagerproject.entity.Cell;
-import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.service.CellService;
 import pl.lsab.prisonmanagerproject.service.PrisonerService;
@@ -14,7 +13,6 @@ import pl.lsab.prisonmanagerproject.service.PrisonerService;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/osadzeni")
@@ -26,7 +24,6 @@ public class PrisonerController {
         this.prisonerService = prisonerService;
         this.cellService = cellService;
     }
-
     @GetMapping()
     public String allPrisoners(Model prisoners, Model onePrisoner, Model cells){
         Prisoner prisoner = new Prisoner();
@@ -38,7 +35,6 @@ public class PrisonerController {
         onePrisoner.addAttribute("onePrisoner",prisoner);
         return "dashboard/prisoners/prisoners";
     }
-
     @PostMapping()
     public String addCellToPrisoner(@ModelAttribute Prisoner prisoner) {
        Prisoner prisoner1 =new Prisoner();
