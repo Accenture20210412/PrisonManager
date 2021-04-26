@@ -26,10 +26,13 @@ public class CellController {
     @GetMapping("/nowa")
     public String addCell(){
         Cell cell = new Cell();
-        long lastCellId = cellService.findLastCell().getId();
-        cell.setCellNumber((int)lastCellId);
-        cellService.add(cell);
-
+        long lastCellId = 0l;
+        List<Cell> allCells = cellService.findAll();
+        if (allCells.size()>0) {
+            lastCellId = cellService.findLastCell().getId();
+        }
+            cell.setCellNumber((int) lastCellId);
+            cellService.add(cell);
         return "redirect:/cele";
     }
 
