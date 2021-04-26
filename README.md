@@ -9,17 +9,15 @@ Prosty menadżer symulujący zarządzanie wiezieniem
 
 <img src="images/ListaOsadz.png">
 
-<img src="login.png">
+<img src="images/dodajpracownika.png">
 
-<img src="main.png">
+<img src="images/logowanie.png">
 
-<img src="add.png">
+<img src="images/rejestracja.png">
 
-<img src="meals.png">
+<img src="images/stancel.png">
 
-<img src="detail.png">
 
-<img src="search.png">
 
 
 
