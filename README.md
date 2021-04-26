@@ -1,4 +1,3 @@
-# CarboControlApp
 Prosty menadżer symulujący zarządzanie wiezieniem
 ## Wykorzystano:
 - Spring MVC
