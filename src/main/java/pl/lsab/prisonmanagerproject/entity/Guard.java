@@ -31,7 +31,6 @@ public class Guard {
 
     @Min(value = 18, message = "minimum 18 lat")
     @Max(value = 60, message = "maksimum 60 lat")
-    @NotEmpty
     @Column(name = "wiek")
     private int age;
 
