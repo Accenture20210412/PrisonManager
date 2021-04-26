@@ -43,24 +43,26 @@ public class PrisonerController {
     public String addCellToPrisoner(@ModelAttribute Prisoner prisoner) {
        Prisoner prisoner1 =new Prisoner();
         Cell cell1 = new Cell();
-        if (prisoner.getCell() == null) {
-            List<Cell> allCells = cellService.findAll();
-            prisoner1 = prisonerService.findPrisonerById(prisoner.getId());
-            Prisoner finalPrisoner = prisoner1;
-            Predicate<Cell> isQualified = cell -> cell.getPrisoners().contains(finalPrisoner);
-            allCells.stream().filter(isQualified).forEach(Cell::getPrisoners);
-            allCells.removeIf(isQualified);
-            cell1 = allCells.get(0) ;
-            prisonerService.setUpdatePrisoner(null, prisoner.getId());
+        List<Cell>allCells = cellService.findAll();
+        if (allCells.size()!=0) {
+            if (prisoner.getCell() == null) {
+                prisoner1 = prisonerService.findPrisonerById(prisoner.getId());
+                Prisoner finalPrisoner = prisoner1;
+                Predicate<Cell> isQualified = cell -> cell.getPrisoners().contains(finalPrisoner);
+                allCells.stream().filter(isQualified).forEach(Cell::getPrisoners);
+                allCells.removeIf(isQualified);
+                cell1 = allCells.get(0);
+                prisonerService.setUpdatePrisoner(null, prisoner.getId());
 
-        } else {
-            cell1 = prisoner.getCell();
-            prisoner1 = prisoner;
-            prisoner1.setCell(cell1);
-            cell1.getPrisoners().add(prisoner);
-            prisonerService.setUpdatePrisoner(cell1, prisoner.getId());
+            } else {
+                cell1 = prisoner.getCell();
+                prisoner1 = prisoner;
+                prisoner1.setCell(cell1);
+                cell1.getPrisoners().add(prisoner);
+                prisonerService.setUpdatePrisoner(cell1, prisoner.getId());
+            }
+            cellService.updatePrisonerList(List.copyOf(cell1.getPrisoners()), cell1.getId());
         }
-        cellService.updatePrisonerList(List.copyOf(cell1.getPrisoners()), cell1.getId());
         return "redirect:/osadzeni";
     }
     @PostMapping("/dodaj")

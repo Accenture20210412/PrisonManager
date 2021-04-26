@@ -71,17 +71,20 @@ public class GuardController {
     public String addCellToGuard(@ModelAttribute Guard guard){
         Guard guard1= new Guard();
         Cell cell1 = new Cell();
-        if (guard.getCell()==null){
-            cell1 = cellServiceImp.findByGuard(guard);
-            guardServiceImp.setUpdateGuard(null, guard.getId());
-            cellServiceImp.updateCellGuard(null,cell1.getId());
-        }else {
-            cell1 = guard.getCell();
-            guard1 = guard;
-            guard1.setCell(cell1);
+        List<Cell>allCells = cellServiceImp.findAll();
+        if (allCells.size()!=0) {
+            if (guard.getCell() == null) {
+                cell1 = cellServiceImp.findByGuard(guard);
+                guardServiceImp.setUpdateGuard(null, guard.getId());
+                cellServiceImp.updateCellGuard(null, cell1.getId());
+            } else {
+                cell1 = guard.getCell();
+                guard1 = guard;
+                guard1.setCell(cell1);
 
-            guardServiceImp.setUpdateGuard(cell1, guard.getId());
-            cellServiceImp.updateCellGuard(guard, cell1.getId());
+                guardServiceImp.setUpdateGuard(cell1, guard.getId());
+                cellServiceImp.updateCellGuard(guard, cell1.getId());
+            }
         }
        return "redirect:/straznicy";
         }
