@@ -13,7 +13,9 @@ import java.util.List;
 
 @Repository
 public interface PrisonerRepository extends JpaRepository<Prisoner,Long> {
+
     List<Prisoner> findAll();
+
     void deleteById(Long id);
 
     @Query("SELECT p from Prisoner p where p.id = ?1")
@@ -21,9 +23,8 @@ public interface PrisonerRepository extends JpaRepository<Prisoner,Long> {
 
     @Modifying
     @Query("update Prisoner p set p.cell = ?1 WHERE p.id = ?2")
-    void setUpdatePrisoner(Cell cell, Long id);
-
+    void setUpdatePrisonerCell(Cell cell, Long id);
 
     @Query("SELECT p from Prisoner p where p.surname LIKE %?1% or p.name like %?1%")
-    List<Prisoner> searchPrison(String word);
+    List<Prisoner> searchPrisonByPartOfNameOrSurname(String word);
 }

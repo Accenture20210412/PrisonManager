@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
+import pl.lsab.prisonmanagerproject.conventer.LocalDateAttributeConverter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -22,16 +23,13 @@ public class Prisoner {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @Size(min = 3, message = "Imie powinno zawierac conajmniej 3 znaki")
     @Column(name = "imie")
     private String name;
 
-
     @Size(min = 2, message = "Nazwisko powinno zawierac conajmniej 2 znaki")
     @Column(name = "nazwisko")
     private String surname;
-
 
     @Column(name = "ksywa")
     private String nickname;
@@ -52,7 +50,6 @@ public class Prisoner {
 
     @ManyToOne
     private Cell cell;
-
 
     public Prisoner(Long id, String name, String surname, String nickname, String judgment, LocalDate gridBegin, LocalDate gridEnd) {
         this.id = id;

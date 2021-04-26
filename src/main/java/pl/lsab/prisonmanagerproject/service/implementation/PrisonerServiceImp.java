@@ -1,17 +1,17 @@
-package pl.lsab.prisonmanagerproject.service;
+package pl.lsab.prisonmanagerproject.service.implementation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.lsab.prisonmanagerproject.entity.Cell;
-import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.repository.PrisonerRepository;
+import pl.lsab.prisonmanagerproject.service.PrisonerService;
 
 import java.util.List;
 
 @Service
-public class PrisonerServiceImp implements PrisonerService{
+public class PrisonerServiceImp implements PrisonerService {
 
     private final PrisonerRepository prisonerRepository;
 
@@ -19,7 +19,6 @@ public class PrisonerServiceImp implements PrisonerService{
     public PrisonerServiceImp(PrisonerRepository prisonerRepository) {
         this.prisonerRepository = prisonerRepository;
     }
-
 
     @Override
     public void addPrisoner(Prisoner prisoner) {
@@ -36,23 +35,18 @@ public class PrisonerServiceImp implements PrisonerService{
         prisonerRepository.deleteById(id);
     }
 
-
     @Override
     public Prisoner findPrisonerById(Long id) {
        return prisonerRepository.findPrisonerById(id);
-
     }
-
     @Override
     @Transactional
     public void setUpdatePrisoner(Cell cell, Long id) {
-        prisonerRepository.setUpdatePrisoner(cell, id);
+        prisonerRepository.setUpdatePrisonerCell(cell, id);
     }
 
     @Override
     public List<Prisoner> searchPrison(String word) {
-        return prisonerRepository.searchPrison(word);
+        return prisonerRepository.searchPrisonByPartOfNameOrSurname(word);
     }
-
-
 }

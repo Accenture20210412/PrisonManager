@@ -76,7 +76,6 @@ public class PrisonerController {
         return "dashboard/prisoners/addPrisoner";
     }
 
-
     @GetMapping("/delete/{id}")
     public String deletePrisoner(@PathVariable Long id){
         Prisoner prisoner = prisonerService.findPrisonerById(id);

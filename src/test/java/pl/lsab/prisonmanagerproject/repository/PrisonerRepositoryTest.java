@@ -50,8 +50,8 @@ class PrisonerRepositoryTest {
         Prisoner prisoner2 = new Prisoner(2l,"msasa","Slasa","usa","zabojstwo", LocalDate.parse("2020-12-20"),LocalDate.parse("2021-12-20"));
         prisonerRepository.save(prisoner1);
         prisonerRepository.save(prisoner2);
-        prisonerRepository.searchPrison("msa");
-        assertEquals(prisonerRepository.searchPrison("msa").size(),1);
+        prisonerRepository.searchPrisonByPartOfNameOrSurname("msa");
+        assertEquals(prisonerRepository.searchPrisonByPartOfNameOrSurname("msa").size(),1);
 
     }
 }

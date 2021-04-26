@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.lsab.prisonmanagerproject.entity.Admin;
-import pl.lsab.prisonmanagerproject.service.AdminServiceImp;
+import pl.lsab.prisonmanagerproject.service.implementation.AdminServiceImp;
 
 import javax.validation.Valid;
 

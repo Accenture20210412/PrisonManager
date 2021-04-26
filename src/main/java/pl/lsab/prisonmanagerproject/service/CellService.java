@@ -1,6 +1,5 @@
 package pl.lsab.prisonmanagerproject.service;
 
-import org.springframework.data.repository.query.Param;
 import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
@@ -13,13 +12,13 @@ public interface CellService {
 
     Cell findOne(Long id);
 
-    void updateCellGuard(Guard guard, Long id);
+    void updateCellByGuard(Guard guard, Long id);
 
-    Cell findByGuard(Guard guard);
+    Cell findCellByGuard(Guard guard);
 
-    List<Cell>findAllWhereNoGuard();
+    List<Cell>findAllCellWhereNoGuard();
 
-    Cell findLastCell();
+    Cell findLastCellCreated();
 
     void updatePrisonerList(List<Prisoner>prisonersList, Long id);
 

@@ -1,4 +1,4 @@
-package pl.lsab.prisonmanagerproject.service;
+package pl.lsab.prisonmanagerproject.service.implementation;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -6,6 +6,7 @@ import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
 import pl.lsab.prisonmanagerproject.repository.CellRepository;
+import pl.lsab.prisonmanagerproject.service.CellService;
 
 import java.util.List;
 
@@ -30,27 +31,26 @@ public class CellServiceImp implements CellService {
 
     @Override
     public Cell findOne(Long id) {
-        return cellRepository.findOne(id);
+        return cellRepository.findOneCellById(id);
     }
 
     @Override
     @Transactional
-    public void updateCellGuard(Guard guard, Long id) {
-        cellRepository.setUpdateCell(guard, id);
+    public void updateCellByGuard(Guard guard, Long id) {
+        cellRepository.setUpdateGuardToCell(guard, id);
     }
 
-
-    public Cell findByGuard(Guard guard) {
+    public Cell findCellByGuard(Guard guard) {
        return cellRepository.findByGuard(guard);
     }
 
-    public List<Cell>findAllWhereNoGuard(){
-       return cellRepository.findAllWhereNoGuard();
+    public List<Cell>findAllCellWhereNoGuard(){
+       return cellRepository.findAllCellWhereNoGuard();
     }
 
     @Override
-    public Cell findLastCell() {
-        return cellRepository.findLastCell();
+    public Cell findLastCellCreated() {
+        return cellRepository.findLastCellCreated();
     }
 
     @Override
@@ -58,7 +58,5 @@ public class CellServiceImp implements CellService {
     public void updatePrisonerList(List<Prisoner> prisonersList, Long id) {
 
     }
-
-
 }
 

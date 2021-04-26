@@ -20,10 +20,10 @@ public interface GuardRepository extends JpaRepository<Guard,Long> {
 
     @Modifying
     @Query("update Guard g set g.cell = ?1 where g.id = ?2")
-    void setUpdateGuard(Cell cell, Long id);
+    void setUpdateGuardCell(Cell cell, Long id);
 
     @Query("SELECT g from Guard g where g.surname LIKE %?1% or g.name LIKE %?1%")
-    List<Guard> searchGuard(String word);
+    List<Guard> searchGuardByPartOfNameOrSurname(String word);
 
 
 

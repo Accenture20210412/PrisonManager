@@ -17,24 +17,21 @@ public interface CellRepository extends JpaRepository<Cell, Long > {
     void findCellById(int id);
 
     @Query("SELECT c from Cell c where c.id=:id")
-    Cell findOne(@Param("id") Long id);
-
+    Cell findOneCellById(@Param("id") Long id);
 
     @Modifying
     @Query("update Cell c set c.guard = ?1 where c.id = ?2")
-    void setUpdateCell(Guard guard, Long id);
+    void setUpdateGuardToCell(Guard guard, Long id);
 
     @Query("SELECT c FROM Cell c WHERE c.guard IS NULL ")
-    List<Cell>findAllWhereNoGuard();
-
+    List<Cell>findAllCellWhereNoGuard();
 
     @Modifying
     @Query("update Cell c set c.prisoners= ?1 where c.id= ?2")
     void updatePrisonerList(List<Prisoner>prisonersList, Long id);
 
-
     @Query("SELECT c FROM Cell c WHERE c.id=(SELECT MAX (id) FROM c)")
-    Cell findLastCell();
+    Cell findLastCellCreated();
 
     Cell findByGuard(Guard guard);
 }

@@ -27,7 +27,7 @@ public class CellController {
         long lastCellId = 0l;
         List<Cell> allCells = cellService.findAll();
         if (allCells.size()>0) {
-            lastCellId = cellService.findLastCell().getId();
+            lastCellId = cellService.findLastCellCreated().getId();
         }
             cell.setCellNumber((int) lastCellId);
             cellService.add(cell);

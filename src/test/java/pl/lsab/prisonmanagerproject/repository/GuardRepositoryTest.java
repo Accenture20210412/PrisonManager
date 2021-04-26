@@ -48,6 +48,6 @@ class GuardRepositoryTest {
     }
     @Test
     void searchGuard() {
-        assertFalse(guardRepository.searchGuard("ala")==null);
+        assertFalse(guardRepository.searchGuardByPartOfNameOrSurname("ala")==null);
     }
 }

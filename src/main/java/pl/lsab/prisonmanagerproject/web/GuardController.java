@@ -16,7 +16,6 @@ import java.util.List;
 @RequestMapping("/straznicy")
 public class GuardController {
 
-
     GuardService guardService;
     AdminService adminService;
     CellService cellService;
@@ -31,11 +30,10 @@ public class GuardController {
     public String allGuards(Model guards, Model cells, Model oneGuard){
         Guard guard = new Guard();
         List<Guard> allGuards = guardService.allGuards();
-        List<Cell>allCellsWhereNoGuard = cellService.findAllWhereNoGuard();
+        List<Cell>allCellsWhereNoGuard = cellService.findAllCellWhereNoGuard();
         guards.addAttribute("guards",allGuards);
         cells.addAttribute("cells",allCellsWhereNoGuard);
         oneGuard.addAttribute("oneGuard",guard);
-
         return "dashboard/guards/guards";
     }
 
@@ -58,7 +56,7 @@ public class GuardController {
     public String deleteGuard(@PathVariable Long id){
        Guard guard = guardService.findOne(id);
         if(guard.getCell()!=null) {
-            cellService.updateCellGuard(null, guard.getCell().getId());
+            cellService.updateCellByGuard(null, guard.getCell().getId());
         }
         guardService.delete(id);
         return "redirect:/straznicy";
@@ -72,16 +70,15 @@ public class GuardController {
         List<Cell>allCells = cellService.findAll();
         if (allCells.size()!=0) {
             if (guard.getCell() == null) {
-                cell1 = cellService.findByGuard(guard);
+                cell1 = cellService.findCellByGuard(guard);
                 guardService.setUpdateGuard(null, guard.getId());
-                cellService.updateCellGuard(null, cell1.getId());
+                cellService.updateCellByGuard(null, cell1.getId());
             } else {
                 cell1 = guard.getCell();
                 guard1 = guard;
                 guard1.setCell(cell1);
-
                 guardService.setUpdateGuard(cell1, guard.getId());
-                cellService.updateCellGuard(guard, cell1.getId());
+                cellService.updateCellByGuard(guard, cell1.getId());
             }
         }
        return "redirect:/straznicy";
@@ -91,15 +88,13 @@ public class GuardController {
     public String searchGuards(@Param("keyword") String keyword, Model guards, Model cells, Model oneGuard){
         Guard guard = new Guard();
         String word = keyword;
-        List<Guard> guardSearchList = guardService.searchGuard(word);
-        List<Cell>allCellsWhereNoGuard = cellService.findAllWhereNoGuard();
+        List<Guard> guardSearchList = guardService.searchGuardByPartOfNameOrSurname(word);
+        List<Cell>allCellsWhereNoGuard = cellService.findAllCellWhereNoGuard();
         guards.addAttribute("guards",guardSearchList);
         cells.addAttribute("cells",allCellsWhereNoGuard);
         oneGuard.addAttribute("oneGuard",guard);
 
         return "dashboard/guards/guards";
     }
-
-
 }
 

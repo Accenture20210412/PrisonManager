@@ -1,16 +1,16 @@
-package pl.lsab.prisonmanagerproject.service;
+package pl.lsab.prisonmanagerproject.service.implementation;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.repository.GuardRepository;
+import pl.lsab.prisonmanagerproject.service.GuardService;
 
 import java.util.List;
 
 @Service
-public class GuardServiceImp implements GuardService{
-
+public class GuardServiceImp implements GuardService {
 
     GuardRepository guardRepository;
 
@@ -28,7 +28,6 @@ public class GuardServiceImp implements GuardService{
         guardRepository.deleteById(id);
     }
 
-
     @Override
     public List<Guard> allGuards() {
         return guardRepository.findAll();
@@ -42,15 +41,11 @@ public class GuardServiceImp implements GuardService{
     @Override
     @Transactional
     public void setUpdateGuard(Cell cell, Long id) {
-        guardRepository.setUpdateGuard(cell,id);
+        guardRepository.setUpdateGuardCell(cell,id);
     }
 
     @Override
-    public List<Guard> searchGuard(String word) {
-        return guardRepository.searchGuard(word);
-
-
+    public List<Guard> searchGuardByPartOfNameOrSurname(String word) {
+        return guardRepository.searchGuardByPartOfNameOrSurname(word);
     }
-
-
 }

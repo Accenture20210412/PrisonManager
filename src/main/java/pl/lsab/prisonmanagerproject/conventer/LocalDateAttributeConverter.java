@@ -1,4 +1,4 @@
-package pl.lsab.prisonmanagerproject.entity;
+package pl.lsab.prisonmanagerproject.conventer;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
@@ -10,10 +10,8 @@ public class LocalDateAttributeConverter implements AttributeConverter<LocalDate
 
     @Override
     public Date convertToDatabaseColumn(LocalDate locDate) {
-
         return locDate == null ? null : Date.valueOf(locDate);
     }
-
     @Override
     public LocalDate convertToEntityAttribute(Date sqlDate) {
 
