@@ -4,7 +4,6 @@ Prosty menadżer symulujący zarządzanie wiezieniem
 - Spring Form
 - Hibernate
 - Spring Security
-- Podstawowa implementacja wzorca fasady
 
 <img src="images/mainS2.png">
 
