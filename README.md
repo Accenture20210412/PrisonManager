@@ -7,6 +7,8 @@ Prosty menadżer symulujący zarządzanie wiezieniem
 - Spring Security
 - Podstawowa implementacja wzorca fasady
 
+<img src="images/mainS.png">
+
 <img src="images/ListaOsadz.png">
 
 <img src="images/dodajpracownika.png">
