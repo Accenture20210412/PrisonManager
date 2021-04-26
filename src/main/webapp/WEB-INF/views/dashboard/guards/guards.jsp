@@ -18,7 +18,6 @@
     <a href="<c:url value='/'/>" class="btn btn-info" role="button">Strona Główna</a>
     <a href="<c:url value="/straznicy/dodaj"/>" class="btn btn-info" role="button">Nowy strażnik</a>
     <a href="<c:url value='/cele'/>" class="btn btn-info" role="button">Stan cel</a>
-    <a href="<c:url value='/'/>" class="btn btn-info" role="button">Wyloguj</a>
     <a> <form class="topright" action="/straznicy/search">
         <input type="text" placeholder="Search.." name="keyword" id="search" >
         <button type="submit" class="btn btn-info">szukaj</button>
