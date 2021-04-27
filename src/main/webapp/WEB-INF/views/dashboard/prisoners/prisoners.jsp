@@ -65,7 +65,7 @@
                             <td><c:out value="${prisoner.cell.id}"/></td>
                             </c:if>
                             <td>
-                                <button type="submit" class="btn btn-secondary">Dodaj</button>
+                                <button type="submit" class="btn btn-secondary">Dodaj/Usun</button>
                             </td>
                             <td><a href="<c:url value="/osadzeni/delete/${prisoner.id}"/>" class="btn btn-info" role="button">Usuń</a></td>
                         </tr>
