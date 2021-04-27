@@ -18,7 +18,7 @@
     <a href="<c:url value='/cells'/>">Stan cel</a>
     <a href="<c:url value='/guards/add'/>">Dodaj straznika</a>
     <a href="<c:url value='/guards'/>">Straznicy</a>
-    <a href="<c:url value='/logoout'/>">Wyloguj</a>
+    <a href="<c:url value='/logout'/>">Wyloguj</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars"></i>
     </a>

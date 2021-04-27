@@ -43,7 +43,7 @@
                 </thead>
                 <tbody>
                 <c:forEach items="${guards}" var="guard">
-                <form:form method="post" modelAttribute="oneGuard" action="/straznicy">
+                <form:form method="post" modelAttribute="oneGuard" action="/guards">
                     <tr>
                         <td><form:input readonly="true" path="id" value="${guard.id}"/></td>
                         <td><form:input type="text" readonly="true" path="name" value="${guard.name}"/></td>
@@ -62,7 +62,7 @@
                         <td>
                             <button type="submit" class="btn btn-secondary">Dodaj/Usuń</button>
                         </td>
-                        <td><a href="<c:url value="/straznicy/delete/${guard.id}"/>" class="btn btn-info" role="button">Usuń</a></td>
+                        <td><a href="<c:url value="/guards/delete/${guard.id}"/>" class="btn btn-info" role="button">Usuń</a></td>
                     </tr>
                 </form:form>
                 </c:forEach>
