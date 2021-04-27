@@ -24,26 +24,26 @@ public class Prisoner {
     private Long id;
 
     @Size(min = 3, message = "Imie powinno zawierac conajmniej 3 znaki")
-    @Column(name = "imie")
+    @Column(name = "name")
     private String name;
 
     @Size(min = 2, message = "Nazwisko powinno zawierac conajmniej 2 znaki")
-    @Column(name = "nazwisko")
+    @Column(name = "surname")
     private String surname;
 
-    @Column(name = "ksywa")
+    @Column(name = "nickname")
     private String nickname;
 
     @NotEmpty(message = "Wprowadz wyrok")
-    @Column(name = "wyrok")
+    @Column(name = "judgment")
     private String judgment;
 
-    @Column
+    @Column(name = "grid_begin")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Convert(converter = LocalDateAttributeConverter.class)
     private LocalDate gridBegin;
 
-    @Column
+    @Column(name = "grid_end")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Convert(converter = LocalDateAttributeConverter.class)
     private LocalDate gridEnd;

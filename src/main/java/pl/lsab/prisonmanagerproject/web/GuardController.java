@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/straznicy")
+@RequestMapping("/guards")
 public class GuardController {
 
     GuardService guardService;
@@ -37,19 +37,19 @@ public class GuardController {
         return "dashboard/guards/guards";
     }
 
-    @GetMapping("/dodaj")
+    @GetMapping("/add")
     public String addGuard(Model model){
         model.addAttribute("guard",new Guard());
         return "dashboard/guards/addGuard";
     }
 
-    @PostMapping("/dodaj")
+    @PostMapping("/add")
     public String addGuard(@Valid @ModelAttribute Guard guard, BindingResult result){
         if (result.hasErrors()) {
             return "dashboard/guards/addGuard";
         }
         guardService.save(guard);
-        return "redirect:/straznicy";
+        return "redirect:/guards";
     }
 
     @GetMapping("/delete/{id}")
@@ -59,7 +59,7 @@ public class GuardController {
             cellService.updateCellByGuard(null, guard.getCell().getId());
         }
         guardService.delete(id);
-        return "redirect:/straznicy";
+        return "redirect:/guards";
     }
 
 
@@ -81,7 +81,7 @@ public class GuardController {
                 cellService.updateCellByGuard(guard, cell1.getId());
             }
         }
-       return "redirect:/straznicy";
+       return "redirect:/guards";
         }
 
     @GetMapping("/search")

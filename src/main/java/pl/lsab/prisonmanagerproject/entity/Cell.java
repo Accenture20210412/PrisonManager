@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "cela")
+@Table(name = "cell")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,7 +17,7 @@ public class Cell {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "numer")
+    @Column(name = "cell_number")
     private int cellNumber;
 
     @OneToMany(mappedBy = "cell")

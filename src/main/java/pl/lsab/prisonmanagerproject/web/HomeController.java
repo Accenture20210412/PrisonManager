@@ -25,15 +25,15 @@ public class HomeController {
         if (principal != null) {
            return "dashboard/main";
         }else{
-            return "redirect:/logowanie";
+            return "redirect:/login";
         }
     }
     @PostMapping()
     public String test(){
         Admin admin = new Admin();
         if (adminService.findByUsername(admin.getUsername()) == null){
-            return "redirect:rejestracja";
+            return "redirect:register";
         }
-        return "redirect:/logowanie";
+        return "redirect:/login";
     }
 }

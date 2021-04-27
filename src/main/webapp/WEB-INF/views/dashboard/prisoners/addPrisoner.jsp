@@ -15,7 +15,7 @@
 </head>
 <header>
     <a href="<c:url value='/'/>" class="btn btn-info" role="button">Strona Główna</a>
-    <a href="<c:url value='/osadzeni'/>" class="btn btn-info" role="button">Lista osadzonych</a>
+    <a href="<c:url value='/prisoners'/>" class="btn btn-info" role="button">Lista osadzonych</a>
 </header>
 
 <section class="dashboard-section">

@@ -11,7 +11,7 @@ import pl.lsab.prisonmanagerproject.service.PrisonerService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/cele")
+@RequestMapping("/cells")
 public class CellController {
 
     private CellService cellService;
@@ -21,7 +21,7 @@ public class CellController {
         this.cellService = cellService;
         this.prisonerService = prisonerService;
     }
-    @GetMapping("/nowa")
+    @GetMapping("/new")
     public String addCell(){
         Cell cell = new Cell();
         long lastCellId = 0l;
@@ -31,7 +31,7 @@ public class CellController {
         }
             cell.setCellNumber((int) lastCellId);
             cellService.add(cell);
-        return "redirect:/cele";
+        return "redirect:/cells";
     }
 
     @GetMapping

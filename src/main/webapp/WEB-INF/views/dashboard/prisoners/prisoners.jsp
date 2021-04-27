@@ -13,10 +13,10 @@
 </head>
 <header>
     <a href="<c:url value='/'/>" class="btn btn-info" role="button">Strona Główna</a>
-    <a href="<c:url value="/osadzeni/dodaj"/>" class="btn btn-info" role="button">Dodaj osadzonego</a>
-    <a href="<c:url value='/straznicy/dodaj'/>" class="btn btn-info" role="button">Dodaj straznika</a>
-    <a href="<c:url value='/straznicy'/>" class="btn btn-info" role="button">Straznicy</a>
-    <a href="<c:url value='/cele'/>" class="btn btn-info" role="button">Stan cel</a>
+    <a href="<c:url value="/prisoners/add"/>" class="btn btn-info" role="button">Dodaj osadzonego</a>
+    <a href="<c:url value='/guards/add'/>" class="btn btn-info" role="button">Dodaj straznika</a>
+    <a href="<c:url value='/guards'/>" class="btn btn-info" role="button">Straznicy</a>
+    <a href="<c:url value='/cells'/>" class="btn btn-info" role="button">Stan cel</a>
     <a> <form class="topright" action="/osadzeni/search">
         <input type="text" placeholder="Search.." name="keyword" id="search" >
         <button type="submit" class="btn btn-info">szukaj</button>

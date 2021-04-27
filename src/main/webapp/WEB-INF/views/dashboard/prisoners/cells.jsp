@@ -13,7 +13,7 @@
 </head>
 <header>
     <a href="<c:url value='/'/>" class="btn btn-info" role="button">Strona Główna</a>
-    <a href="<c:url value="/cele/nowa"/>" class="btn btn-info" role="button">Dodaj nowa cela</a>
+    <a href="<c:url value="/cell/add"/>" class="btn btn-info" role="button">Dodaj nowa cela</a>
 </header>
 <div class="container-fluid padding">
     <div class="row padding">

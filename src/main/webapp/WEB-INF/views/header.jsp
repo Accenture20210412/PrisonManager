@@ -11,8 +11,8 @@
     <body>
 
     <div class="sidebar">
-        <a href="<c:url value='/logowanie'/>"><i class="fa fa-fw fa-user"></i>Logowanie</a>
-        <a href="<c:url value='/rejestracja'/>"><i class="fa fa-fw fa-envelope"></i>Rejestracja</a>
+        <a href="<c:url value='/login'/>"><i class="fa fa-fw fa-user"></i>Logowanie</a>
+        <a href="<c:url value='/register'/>"><i class="fa fa-fw fa-envelope"></i>Rejestracja</a>
     </div>
     </body>
 

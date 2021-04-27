@@ -14,7 +14,7 @@ import pl.lsab.prisonmanagerproject.service.AdminService;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/rejestracja")
+@RequestMapping("/register")
 public class RegistrationController {
 
     AdminService adminService;
@@ -45,7 +45,7 @@ public class RegistrationController {
         }
         admin.setEnable(true);
         adminService.save(admin);
-        return "redirect:/logowanie";
+        return "redirect:/login";
     }
 
 

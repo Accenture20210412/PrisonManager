@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     @Override
     protected void configure(AuthenticationManagerBuilder managerBuilder)throws Exception{
         managerBuilder.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder())
-                .usersByUsernameQuery("SELECT username, haslo, enable FROM admin WHERE username = ?")
+                .usersByUsernameQuery("SELECT username, password, enable FROM admin WHERE username = ?")
                 .authoritiesByUsernameQuery("SELECT username, 'default' FROM admin WHERE username = ?");
     }
     @Override
@@ -37,13 +37,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers("/app/**").authenticated().anyRequest().permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/logowanie").permitAll()
+                .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/")
-                .failureUrl("/logowanie?error")
+                .failureUrl("/login?error")
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/wylogowanie"))
-                .logoutSuccessUrl("/logowanie")
+                .logoutSuccessUrl("/login")
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
                 .and()

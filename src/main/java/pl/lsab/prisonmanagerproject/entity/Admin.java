@@ -18,11 +18,11 @@ public class Admin {
     private Long id;
 
     @Size(min = 3, message = "imie powinno zawierac minimum 3 znaki")
-    @Column(name = "imie")
+    @Column(name = "name")
     private String firstName;
 
     @Size(min = 3, message = "nazwisko powinno zawierac minimum 3 znaki")
-    @Column(name = "nazwisko")
+    @Column(name = "surname")
     private String lastName;
 
     @Size(min = 3, message = "login powinien zawierac minimum 3 znaki")
@@ -30,7 +30,7 @@ public class Admin {
     private String username;
 
     @Size(min = 5, message = "Minimum 5 znakow")
-    @Column(name = "haslo")
+    @Column(name = "password")
     private String password;
 
     @Transient

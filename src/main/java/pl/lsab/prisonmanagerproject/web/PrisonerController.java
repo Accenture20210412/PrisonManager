@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 @Controller
-@RequestMapping("/osadzeni")
+@RequestMapping("/prisoners")
 public class PrisonerController {
     private PrisonerService prisonerService;
     private CellService cellService;
@@ -59,18 +59,18 @@ public class PrisonerController {
             }
             cellService.updatePrisonerList(List.copyOf(cell1.getPrisoners()), cell1.getId());
         }
-        return "redirect:/osadzeni";
+        return "redirect:/prisoners";
     }
-    @PostMapping("/dodaj")
+    @PostMapping("/add")
     public String addPrisoner(@Valid @ModelAttribute Prisoner prisoner, BindingResult validation){
         if (!validation.hasErrors() && prisoner.getGridBegin().isBefore(prisoner.getGridEnd())){
             prisonerService.addPrisoner(prisoner);
-            return "redirect:/osadzeni";
+            return "redirect:/prisoners";
         }
         return "dashboard/prisoners/addPrisoner";
     }
 
-    @GetMapping("/dodaj")
+    @GetMapping("/add")
     public String addPrisoner(Model model){
         model.addAttribute("prisoner",new Prisoner());
         return "dashboard/prisoners/addPrisoner";
@@ -85,7 +85,7 @@ public class PrisonerController {
             prisonerService.setUpdatePrisoner(null, prisoner.getId());
         }
         prisonerService.removePrisoner(id);
-        return "redirect:/osadzeni";
+        return "redirect:/prisoners";
     }
 
     @GetMapping("/search")
