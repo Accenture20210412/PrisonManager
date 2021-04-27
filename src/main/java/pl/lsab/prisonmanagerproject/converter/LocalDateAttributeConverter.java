@@ -1,4 +1,4 @@
-package pl.lsab.prisonmanagerproject.conventer;
+package pl.lsab.prisonmanagerproject.converter;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

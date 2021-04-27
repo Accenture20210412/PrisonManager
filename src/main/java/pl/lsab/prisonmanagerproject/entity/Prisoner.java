@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
-import pl.lsab.prisonmanagerproject.conventer.LocalDateAttributeConverter;
+import pl.lsab.prisonmanagerproject.converter.LocalDateAttributeConverter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
