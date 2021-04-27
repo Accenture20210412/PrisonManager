@@ -27,4 +27,12 @@ public class Cell {
     private Guard guard;
 
 
+    public Cell(Long id) {
+        this.id = id;
+    }
+
+    public Cell(Long id, int cellNumber) {
+        this.id = id;
+        this.cellNumber = cellNumber;
+    }
 }
