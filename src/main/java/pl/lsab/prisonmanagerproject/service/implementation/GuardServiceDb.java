@@ -10,11 +10,11 @@ import pl.lsab.prisonmanagerproject.service.GuardService;
 import java.util.List;
 
 @Service
-public class GuardServiceImp implements GuardService {
+public class GuardServiceDb implements GuardService {
 
     GuardRepository guardRepository;
 
-    public GuardServiceImp(GuardRepository guardRepository) {
+    public GuardServiceDb(GuardRepository guardRepository) {
         this.guardRepository = guardRepository;
     }
 

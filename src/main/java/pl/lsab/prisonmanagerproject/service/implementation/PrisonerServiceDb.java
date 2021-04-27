@@ -11,12 +11,12 @@ import pl.lsab.prisonmanagerproject.service.PrisonerService;
 import java.util.List;
 
 @Service
-public class PrisonerServiceImp implements PrisonerService {
+public class PrisonerServiceDb implements PrisonerService {
 
     private final PrisonerRepository prisonerRepository;
 
     @Autowired
-    public PrisonerServiceImp(PrisonerRepository prisonerRepository) {
+    public PrisonerServiceDb(PrisonerRepository prisonerRepository) {
         this.prisonerRepository = prisonerRepository;
     }
 
@@ -39,6 +39,7 @@ public class PrisonerServiceImp implements PrisonerService {
     public Prisoner findPrisonerById(Long id) {
        return prisonerRepository.findPrisonerById(id);
     }
+
     @Override
     @Transactional
     public void setUpdatePrisoner(Cell cell, Long id) {

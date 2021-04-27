@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.lsab.prisonmanagerproject.entity.Admin;
-import pl.lsab.prisonmanagerproject.service.implementation.AdminServiceImp;
+import pl.lsab.prisonmanagerproject.service.AdminService;
+
 
 import javax.validation.Valid;
 
@@ -16,10 +17,10 @@ import javax.validation.Valid;
 @RequestMapping("/rejestracja")
 public class RegistrationController {
 
-    AdminServiceImp adminServiceImp;
+    AdminService adminService;
 
-    public RegistrationController(AdminServiceImp adminServiceImp) {
-        this.adminServiceImp = adminServiceImp;
+    public RegistrationController(AdminService adminService) {
+        this.adminService = adminService;
     }
 
     @GetMapping
@@ -31,7 +32,7 @@ public class RegistrationController {
 
     @PostMapping
     public String registerAction (@ModelAttribute @Valid Admin admin, BindingResult result) {
-        Admin admin1 = adminServiceImp.findByUsername(admin.getUsername());
+        Admin admin1 = adminService.findByUsername(admin.getUsername());
         if (admin1 != null) {
             result.rejectValue("username", "error.admin",
                     "Admin zarejestrowany");
@@ -43,7 +44,7 @@ public class RegistrationController {
             return"registration";
         }
         admin.setEnable(true);
-        adminServiceImp.save(admin);
+        adminService.save(admin);
         return "redirect:/logowanie";
     }
 

@@ -106,7 +106,7 @@ public class PrisonerController {
         List<Cell> allCells = cellService.findAll();
         Prisoner prisoner1 = prisonerService.findPrisonerById(prisoner.getId());
         Predicate<Cell> isQualified = cell -> cell.getPrisoners().contains(prisoner1);
-        allCells.stream().filter(isQualified).forEach(cell -> cell.getPrisoners());
+        allCells.stream().filter(isQualified).forEach(Cell::getPrisoners);
         allCells.removeIf(isQualified);
         cell1 = allCells.get(0) ;
 

@@ -10,14 +10,13 @@ import pl.lsab.prisonmanagerproject.service.AdminService;
 import java.util.Optional;
 
 @Service
-@Transactional
-public class AdminServiceImp implements AdminService {
+public class AdminServiceDb implements AdminService {
 
     private AdminRepository adminRepository;
 
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public AdminServiceImp(AdminRepository adminRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public AdminServiceDb(AdminRepository adminRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.adminRepository = adminRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }

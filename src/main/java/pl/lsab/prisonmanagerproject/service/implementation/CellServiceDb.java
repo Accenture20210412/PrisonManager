@@ -11,11 +11,11 @@ import pl.lsab.prisonmanagerproject.service.CellService;
 import java.util.List;
 
 @Service
-public class CellServiceImp implements CellService {
+public class CellServiceDb implements CellService {
 
     CellRepository cellRepository;
 
-    public CellServiceImp(CellRepository cellRepository) {
+    public CellServiceDb(CellRepository cellRepository) {
         this.cellRepository = cellRepository;
     }
 
