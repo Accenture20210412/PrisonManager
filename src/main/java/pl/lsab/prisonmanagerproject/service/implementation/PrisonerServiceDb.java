@@ -41,7 +41,6 @@ public class PrisonerServiceDb implements PrisonerService {
     }
 
     @Override
-    @Transactional
     public void setUpdatePrisoner(Cell cell, Long id) {
         prisonerRepository.setUpdatePrisonerCell(cell, id);
     }

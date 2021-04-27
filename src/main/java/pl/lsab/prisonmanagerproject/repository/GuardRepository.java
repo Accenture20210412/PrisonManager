@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Guard;
 
@@ -19,6 +20,7 @@ public interface GuardRepository extends JpaRepository<Guard,Long> {
     void deleteById(Long id);
 
     @Modifying
+    @Transactional
     @Query("update Guard g set g.cell = ?1 where g.id = ?2")
     void setUpdateGuardCell(Cell cell, Long id);
 

@@ -35,15 +35,16 @@ public class CellServiceDb implements CellService {
     }
 
     @Override
-    @Transactional
     public void updateCellByGuard(Guard guard, Long id) {
         cellRepository.setUpdateGuardToCell(guard, id);
     }
 
+    @Override
     public Cell findCellByGuard(Guard guard) {
        return cellRepository.findByGuard(guard);
     }
 
+    @Override
     public List<Cell>findAllCellWhereNoGuard(){
        return cellRepository.findAllCellWhereNoGuard();
     }
@@ -54,7 +55,6 @@ public class CellServiceDb implements CellService {
     }
 
     @Override
-    @Transactional
     public void updatePrisonerList(List<Prisoner> prisonersList, Long id) {
 
     }

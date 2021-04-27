@@ -39,7 +39,6 @@ public class GuardServiceDb implements GuardService {
     }
 
     @Override
-    @Transactional
     public void setUpdateGuard(Cell cell, Long id) {
         guardRepository.setUpdateGuardCell(cell,id);
     }
