@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public interface CellRepository extends JpaRepository<Cell, Long > {
     List<Cell> findAll();
-    void findCellById(int id);
+    void findCellById(Long id);
 
     @Query("SELECT c from Cell c where c.id=:id")
     Cell findOneCellById(@Param("id") Long id);
