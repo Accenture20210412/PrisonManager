@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import pl.lsab.prisonmanagerproject.entity.Cell;
 import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
@@ -20,6 +21,7 @@ public interface CellRepository extends JpaRepository<Cell, Long > {
     Cell findOneCellById(@Param("id") Long id);
 
     @Modifying
+    @Transactional
     @Query("update Cell c set c.guard = ?1 where c.id = ?2")
     void setUpdateGuardToCell(Guard guard, Long id);
 
@@ -27,6 +29,7 @@ public interface CellRepository extends JpaRepository<Cell, Long > {
     List<Cell>findAllCellWhereNoGuard();
 
     @Modifying
+    @Transactional
     @Query("update Cell c set c.prisoners= ?1 where c.id= ?2")
     void updatePrisonerList(List<Prisoner>prisonersList, Long id);
 

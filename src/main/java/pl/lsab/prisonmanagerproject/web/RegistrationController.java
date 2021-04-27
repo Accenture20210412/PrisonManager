@@ -17,7 +17,7 @@ import javax.validation.Valid;
 @RequestMapping("/register")
 public class RegistrationController {
 
-    AdminService adminService;
+    private AdminService adminService;
 
     public RegistrationController(AdminService adminService) {
         this.adminService = adminService;

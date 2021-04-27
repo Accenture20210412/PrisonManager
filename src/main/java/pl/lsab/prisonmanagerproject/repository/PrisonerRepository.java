@@ -5,8 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import pl.lsab.prisonmanagerproject.entity.Cell;
-import pl.lsab.prisonmanagerproject.entity.Guard;
 import pl.lsab.prisonmanagerproject.entity.Prisoner;
 
 import java.util.List;
@@ -22,6 +22,7 @@ public interface PrisonerRepository extends JpaRepository<Prisoner,Long> {
     Prisoner findPrisonerById(Long id);
 
     @Modifying
+    @Transactional
     @Query("update Prisoner p set p.cell = ?1 WHERE p.id = ?2")
     void setUpdatePrisonerCell(Cell cell, Long id);
 
