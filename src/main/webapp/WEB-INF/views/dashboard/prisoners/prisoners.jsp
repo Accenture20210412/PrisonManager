@@ -17,7 +17,7 @@
     <a href="<c:url value='/guards/add'/>" class="btn btn-info" role="button">Dodaj straznika</a>
     <a href="<c:url value='/guards'/>" class="btn btn-info" role="button">Straznicy</a>
     <a href="<c:url value='/cells'/>" class="btn btn-info" role="button">Stan cel</a>
-    <a> <form class="topright" action="/osadzeni/search">
+    <a> <form class="topright" action="/prisoners/search">
         <input type="text" placeholder="Search.." name="keyword" id="search" >
         <button type="submit" class="btn btn-info">szukaj</button>
     </form></a>
@@ -45,7 +45,7 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${prisoners}" var="prisoner">
-                            <form:form method="post" modelAttribute="onePrisoner" action="/osadzeni" >
+                            <form:form method="post" modelAttribute="onePrisoner" action="/prisoners" >
                         <tr>
                             <td><form:input size="4" readonly="true" path="id" value="${prisoner.id}"/></td>
                             <td><form:input size="10" type="text" readonly="true" path="name" value="${prisoner.name}"/></td>
@@ -67,7 +67,7 @@
                             <td>
                                 <button type="submit" class="btn btn-secondary">Dodaj/Usun</button>
                             </td>
-                            <td><a href="<c:url value="/osadzeni/delete/${prisoner.id}"/>" class="btn btn-info" role="button">Usuń</a></td>
+                            <td><a href="<c:url value="/prisoners/delete/${prisoner.id}"/>" class="btn btn-info" role="button">Usuń</a></td>
                         </tr>
                             </form:form>
                     </c:forEach>
