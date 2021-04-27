@@ -21,7 +21,7 @@ public class CellController {
         this.cellService = cellService;
         this.prisonerService = prisonerService;
     }
-    @GetMapping("/new")
+    @GetMapping("/add")
     public String addCell(){
         Cell cell = new Cell();
         long lastCellId = 0l;
