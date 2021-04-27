@@ -13,7 +13,7 @@ import java.security.Principal;
 @RequestMapping("/")
 public class HomeController {
 
-    AdminService adminService;
+   private AdminService adminService;
 
     public HomeController(AdminService adminService) {
         this.adminService = adminService;

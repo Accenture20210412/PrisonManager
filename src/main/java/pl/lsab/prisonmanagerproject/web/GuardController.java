@@ -16,9 +16,9 @@ import java.util.List;
 @RequestMapping("/straznicy")
 public class GuardController {
 
-    GuardService guardService;
-    AdminService adminService;
-    CellService cellService;
+   private GuardService guardService;
+   private AdminService adminService;
+   private CellService cellService;
 
     public GuardController(GuardService guardService, AdminService adminService, CellService cellService) {
         this.guardService = guardService;

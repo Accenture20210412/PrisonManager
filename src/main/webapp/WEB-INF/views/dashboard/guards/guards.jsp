@@ -60,7 +60,7 @@
                         <td><c:out value="${guard.cell.id}"/></td>
                         </c:if>
                         <td>
-                            <button type="submit" class="btn btn-secondary">Dodaj</button>
+                            <button type="submit" class="btn btn-secondary">Dodaj/Usuń</button>
                         </td>
                         <td><a href="<c:url value="/straznicy/delete/${guard.id}"/>" class="btn btn-info" role="button">Usuń</a></td>
                     </tr>
